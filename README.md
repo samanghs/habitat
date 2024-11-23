@@ -4,9 +4,10 @@ The 'habitat' R Package is a straightforward and accessible tool designed to hel
 
 # Key Features
 1. Minimal Setup: Input raster layers, set a threshold, and get instant results.
-2. Comprehensive Metrics: Gain insights into habitat loss, gain, stability, and net change percentages and areas.
-3. Seamless Visualization: Generate professional-grade plots with a single command.
-4. Ready-to-Export Outputs: Save results in common formats like CSV and TXT for reporting or further analysis.
+2. Fast Raster Modification: Easily modify raster parameters such as CRS, extent, resolution, and apply crop and mask in one line of code.
+3. Comprehensive Metrics: Gain insights into habitat loss, gain, stability, and net change percentages and areas.
+4. Seamless Visualization: Generate professional-grade plots with a single command.
+5. Ready-to-Export Outputs: Save results in common formats like CSV and TXT for reporting or further analysis.
 
 ## Installation
 
