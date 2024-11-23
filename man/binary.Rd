@@ -7,19 +7,29 @@
 binary(x, th)
 }
 \arguments{
-\item{x}{A RasterLayer or SpatRaster object.}
+\item{x}{A RasterLayer or SpatRaster object. This represents the continuous raster dataset to be converted.}
 
-\item{th}{A numeric threshold value between 0 and 1.}
+\item{th}{A numeric threshold value between 0 and 1. This threshold determines the cutoff point for converting values to \code{TRUE} or \code{FALSE}.}
 }
 \value{
-A binary RasterLayer or SpatRaster where values greater than \code{th} are \code{TRUE}, and others are \code{FALSE}.
+A binary RasterLayer or SpatRaster where values greater than the specified threshold are \code{TRUE}, and values less than or equal to the threshold are \code{FALSE}.
 }
 \description{
-Converts a continuous raster dataset into a binary map based on a specified threshold.
+This function converts a continuous raster dataset into a binary map based on a specified threshold. Values in the raster that are greater than the threshold are converted to \code{TRUE}, while values less than or equal to the threshold are converted to \code{FALSE}.
+}
+\details{
+The function is designed to take a continuous raster dataset and convert it into a binary map. This is useful for applications where a binary classification of the data is needed, such as presence/absence mapping or suitability analysis.
 }
 \examples{
+# Example usage with a SpatRaster object
 library(terra)
+
+# Create a sample raster dataset with random values
 r <- rast(nrows=10, ncols=10, vals=runif(100))
+
+# Convert the raster to a binary map using a threshold of 0.5
 binary_map <- binary(r, th=0.5)
-plot(binary_map)
+
+# Plot the resulting binary map
+plot(binary_map, main="Binary Map (Threshold = 0.5)")
 }

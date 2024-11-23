@@ -7,11 +7,24 @@
 HC_plot(data)
 }
 \arguments{
-\item{data}{A data frame containing the habitat change metrics.}
+\item{data}{A data frame containing the habitat change metrics. This data frame should include the percentage metrics such as \code{PercLoss}, \code{PercGain}, and \code{SpeciesRangeChange}.}
+}
+\value{
+None. The function is used for its side effect of creating and displaying the plot.
 }
 \description{
-Plots the habitat changes as a bar chart.
+This function plots the habitat changes as a bar chart. The bar chart visualizes the percentage of loss, gain, and overall species range change.
+}
+\details{
+The function is designed to take the habitat change metrics computed by the \code{habitat_range} function and visualize them in a bar chart. This helps in understanding the extent of habitat changes visually.
 }
 \examples{
+# Example usage with the results from habitat_range function
+library(ggplot2)
+
+# Assume result is obtained from habitat_range function
+# result <- habitat_range(r1, r2, th=0.5)
+
+# Plot the habitat changes
 HC_plot(result$Compt.By.Models)
 }

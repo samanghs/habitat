@@ -7,28 +7,40 @@
 habitat_range(x, y, th)
 }
 \arguments{
-\item{x}{A RasterLayer or SpatRaster object representing the current habitat (binary).}
+\item{x}{A SpatRaster object representing the current habitat (binary). This raster should contain binary values indicating habitat presence and absence.}
 
-\item{y}{A RasterLayer or SpatRaster object representing the future habitat (binary).}
+\item{y}{A SpatRaster object representing the future habitat (binary). This raster should also contain binary values indicating habitat presence and absence.}
 
-\item{th}{A numeric threshold value between 0 and 1.}
+\item{th}{A numeric threshold value between 0 and 1. This threshold is used to convert continuous data into a binary format before analysis.}
 }
 \value{
 A list containing:
 \itemize{
-\item \code{Compt.By.Models}: A data frame with detailed metrics.
-\item \code{Diff.By.Pixel}: A SpatRaster showing pixel-wise differences.
+\item \code{Compt.By.Models}: A data frame with detailed metrics, including loss, gain, stable areas, and percentage changes.
+\item \code{Diff.By.Pixel}: A SpatRaster showing pixel-wise differences between the current and future habitat maps.
 }
 }
 \description{
-Computes metrics such as gain, loss, stable areas, and total changes between two binary raster maps.
+This function computes metrics such as gain, loss, stable areas, and total changes between two binary raster maps. It provides a detailed analysis of habitat changes over time.
+}
+\details{
+The function is designed to compare two binary raster maps representing habitat data at different time points. It calculates various metrics to summarize the changes between the two maps, which can be used to assess the impact of environmental changes or conservation efforts.
 }
 \examples{
+# Example usage with SpatRaster objects
 library(terra)
 library(ggplot2)
+
+# Create sample binary raster datasets
 r1 <- rast(nrows=10, ncols=10, vals=sample(c(0, 1), 100, replace=TRUE))
 r2 <- rast(nrows=10, ncols=10, vals=sample(c(0, 1), 100, replace=TRUE))
+
+# Analyze habitat changes
 result <- habitat_range(r1, r2, th=0.5)
-results(result)
+
+# Display the computed metrics
+print(result$Compt.By.Models)
+
+# Plot the habitat changes
 HC_plot(result$Compt.By.Models)
 }

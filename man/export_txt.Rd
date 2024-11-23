@@ -7,13 +7,25 @@
 export_txt(result, file_path)
 }
 \arguments{
-\item{result}{A list containing the habitat change metrics.}
+\item{result}{A list containing the habitat change metrics. This list should include a component named \code{Compt.By.Models} which holds the data to be exported.}
 
-\item{file_path}{The file path where the TXT file will be saved.}
+\item{file_path}{The file path where the TXT file will be saved. The path should include the desired file name and the \code{.txt} extension.}
+}
+\value{
+None. The function is used for its side effect of writing the data to a TXT file.
 }
 \description{
-Exports the habitat change metrics to a TXT file.
+This function exports the habitat change metrics to a TXT file. The habitat change metrics are extracted from the provided result list and saved as a TXT file at the specified file path.
+}
+\details{
+The function is designed to facilitate the export of habitat change metrics to a TXT file. This is useful for saving analysis results in a text format that can be easily shared and imported into other software for further analysis.
 }
 \examples{
+# Example usage
+
+# Create a sample result list with habitat change metrics
+result <- list(Compt.By.Models = data.frame(Model = c("Model1", "Model2"), Metric1 = c(0.1, 0.2), Metric2 = c(0.3, 0.4)))
+
+# Export the habitat change metrics to a TXT file
 export_txt(result, "habitat_results.txt")
 }
