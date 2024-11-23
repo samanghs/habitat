@@ -1,5 +1,5 @@
 #' @title Load Essential Libraries for habitat
-#' @description This file ensures that all necessary libraries are installed and loaded when the habitat package is loaded.
+#' @description 
 
 .onAttach <- function(libname, pkgname) {
 
