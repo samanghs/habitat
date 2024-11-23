@@ -1,4 +1,4 @@
-#' @title Load Essential Libraries for habitat
+#' @title Load Essential Libraries for 'habitat' package
 #' @description 
 
 .onAttach <- function(libname, pkgname) {
