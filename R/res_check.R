@@ -1,13 +1,19 @@
 #' @title Validate Raster Inputs
-#' @description Checks whether two raster datasets have identical extent, CRS, dimensions, and resolution.
-#' @param x A RasterLayer or SpatRaster object representing the first dataset.
-#' @param y A RasterLayer or SpatRaster object representing the second dataset.
-#' @return Returns `TRUE` if all checks pass, otherwise throws an error.
+#' @description This function checks whether two raster datasets have identical extent, CRS (Coordinate Reference System), dimensions, and resolution. It ensures that the two raster datasets are compatible for further analysis.
+#' @param x A RasterLayer or SpatRaster object representing the first dataset. This is the initial raster that will be compared.
+#' @param y A RasterLayer or SpatRaster object representing the second dataset. This is the raster that will be compared against the first raster.
+#' @return Returns `TRUE` if all checks pass, otherwise throws an error indicating which check failed.
+#' @details The function is designed to validate the compatibility of two raster datasets by checking their extent, CRS, dimensions, and resolution. This is crucial for ensuring that subsequent spatial analyses can be performed accurately without encountering alignment issues.
 #' @examples
+#' # Example usage with SpatRaster objects
 #' library(terra)
+#'
+#' # Create sample raster datasets
 #' r1 <- rast(nrows=10, ncols=10, vals=runif(100))
 #' r2 <- rast(nrows=10, ncols=10, vals=runif(100))
-#' res_check(r1, r2) # Should return TRUE
+#'
+#' # Validate that the raster datasets have identical properties
+#' res_check(r1, r2) # Should return TRUE if all checks pass
 #' @export
 res_check <- function(x, y) {
   if (!inherits(x, c("RasterLayer", "SpatRaster")) ||
