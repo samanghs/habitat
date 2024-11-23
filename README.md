@@ -1,6 +1,12 @@
 # Habitat Range Analysis Package
 
-This package provides tools for analyzing habitat changes between current and future projections.
+The 'habitat' R Package is a straightforward and accessible tool designed to help users quickly analyze and interpret habitat changes with minimal effort. Specifically tailored for new users and those unfamiliar with complex geospatial analysis workflows, this package streamlines the process of comparing habitat distributions between current and future scenarios.
+
+# Key Features
+1. Minimal Setup: Input raster layers, set a threshold, and get instant results.
+2. Comprehensive Metrics: Gain insights into habitat loss, gain, stability, and net change percentages and areas.
+3. Seamless Visualization: Generate professional-grade plots with a single command.
+4. Ready-to-Export Outputs: Save results in common formats like CSV and TXT for reporting or further analysis.
 
 ## Installation
 
