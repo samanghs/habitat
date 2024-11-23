@@ -11,10 +11,11 @@ The 'habitat' R Package is a straightforward and accessible tool designed to hel
 
 ## Installation
 
-You can install the package from GitHub:
+install the package from GitHub:
 
 ```r
 devtools::install_github("samanghs/habitat")
+
 
 # Example
 library(habitat)
