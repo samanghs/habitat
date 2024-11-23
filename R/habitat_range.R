@@ -1,20 +1,30 @@
 #' @title Analyze Habitat Changes
-#' @description Computes metrics such as gain, loss, stable areas, and total changes between two binary raster maps.
-#' @param x A RasterLayer or SpatRaster object representing the current habitat (binary).
-#' @param y A RasterLayer or SpatRaster object representing the future habitat (binary).
-#' @param th A numeric threshold value between 0 and 1.
+#' @description This function computes metrics such as gain, loss, stable areas, and total changes between two binary raster maps. It provides a detailed analysis of habitat changes over time.
+#' @param x A SpatRaster object representing the current habitat (binary). This raster should contain binary values indicating habitat presence and absence.
+#' @param y A SpatRaster object representing the future habitat (binary). This raster should also contain binary values indicating habitat presence and absence.
+#' @param th A numeric threshold value between 0 and 1. This threshold is used to convert continuous data into a binary format before analysis.
 #' @return A list containing:
 #' \itemize{
-#'   \item \code{Compt.By.Models}: A data frame with detailed metrics.
-#'   \item \code{Diff.By.Pixel}: A SpatRaster showing pixel-wise differences.
+#'   \item \code{Compt.By.Models}: A data frame with detailed metrics, including loss, gain, stable areas, and percentage changes.
+#'   \item \code{Diff.By.Pixel}: A SpatRaster showing pixel-wise differences between the current and future habitat maps.
 #' }
+#' @details The function is designed to compare two binary raster maps representing habitat data at different time points. It calculates various metrics to summarize the changes between the two maps, which can be used to assess the impact of environmental changes or conservation efforts.
 #' @examples
+#' # Example usage with SpatRaster objects
 #' library(terra)
 #' library(ggplot2)
+#'
+#' # Create sample binary raster datasets
 #' r1 <- rast(nrows=10, ncols=10, vals=sample(c(0, 1), 100, replace=TRUE))
 #' r2 <- rast(nrows=10, ncols=10, vals=sample(c(0, 1), 100, replace=TRUE))
+#'
+#' # Analyze habitat changes
 #' result <- habitat_range(r1, r2, th=0.5)
-#' results(result)
+#'
+#' # Display the computed metrics
+#' print(result$Compt.By.Models)
+#'
+#' # Plot the habitat changes
 #' HC_plot(result$Compt.By.Models)
 #' @export
 habitat_range <- function(x, y, th) {
@@ -38,7 +48,6 @@ habitat_range <- function(x, y, th) {
   gain <- sum(y_values == 1 & x_values == 0)
   change <- gain + loss
 
-
   total_pixels <- length(x_values)
   pixel_area <- terra::res(x)[1] * terra::res(x)[2] / 1e6
   total_area <- total_pixels * pixel_area
@@ -48,17 +57,17 @@ habitat_range <- function(x, y, th) {
                "Gain", "PercLoss", "PercGain",
                "SpeciesRangeChange", "CurrentRangeSize",
                "FutureRangeSize.NoDisp", "FutureRangeSize.FullDisp"),
-      Value = c(loss,
-                stable0,
-                stable1,
-                gain,
-                round(100 * loss / (loss + stable1), 2),
-                round(100 * gain / (loss + stable1), 2),
-                round(100 * (gain - loss) / (loss + stable1), 2),
-                sum(x_values == 1),
-                sum(y_values == 1),
-                sum(y_values == 1) + gain
-      )
+    Value = c(loss,
+              stable0,
+              stable1,
+              gain,
+              round(100 * loss / (loss + stable1), 2),
+              round(100 * gain / (loss + stable1), 2),
+              round(100 * (gain - loss) / (loss + stable1), 2),
+              sum(x_values == 1),
+              sum(y_values == 1),
+              sum(y_values == 1) + gain
+    )
   )
 
   diff_raster <- y_bin - x_bin
@@ -73,9 +82,18 @@ habitat_range <- function(x, y, th) {
 }
 
 #' @title Plot Habitat Changes
-#' @description Plots the habitat changes as a bar chart.
-#' @param data A data frame containing the habitat change metrics.
+#' @description This function plots the habitat changes as a bar chart. The bar chart visualizes the percentage of loss, gain, and overall species range change.
+#' @param data A data frame containing the habitat change metrics. This data frame should include the percentage metrics such as `PercLoss`, `PercGain`, and `SpeciesRangeChange`.
+#' @return None. The function is used for its side effect of creating and displaying the plot.
+#' @details The function is designed to take the habitat change metrics computed by the `habitat_range` function and visualize them in a bar chart. This helps in understanding the extent of habitat changes visually.
 #' @examples
+#' # Example usage with the results from habitat_range function
+#' library(ggplot2)
+#'
+#' # Assume result is obtained from habitat_range function
+#' # result <- habitat_range(r1, r2, th=0.5)
+#'
+#' # Plot the habitat changes
 #' HC_plot(result$Compt.By.Models)
 #' @export
 HC_plot <- function(data) {
