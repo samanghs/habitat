@@ -1,0 +1,98 @@
+#' @title Analyze Habitat Changes
+#' @description Computes metrics such as gain, loss, stable areas, and total changes between two binary raster maps.
+#' @param x A RasterLayer or SpatRaster object representing the current habitat (binary).
+#' @param y A RasterLayer or SpatRaster object representing the future habitat (binary).
+#' @param th A numeric threshold value between 0 and 1.
+#' @return A list containing:
+#' \itemize{
+#'   \item \code{Compt.By.Models}: A data frame with detailed metrics.
+#'   \item \code{Diff.By.Pixel}: A SpatRaster showing pixel-wise differences.
+#' }
+#' @examples
+#' library(terra)
+#' library(ggplot2)
+#' r1 <- rast(nrows=10, ncols=10, vals=sample(c(0, 1), 100, replace=TRUE))
+#' r2 <- rast(nrows=10, ncols=10, vals=sample(c(0, 1), 100, replace=TRUE))
+#' result <- habitat_range(r1, r2, th=0.5)
+#' results(result)
+#' HC_plot(result$Compt.By.Models)
+#' @export
+habitat_range <- function(x, y, th) {
+  if (!inherits(x, c("SpatRaster")) || !inherits(y, c("SpatRaster"))) {
+    stop("Both inputs must be SpatRaster objects.")
+  }
+
+  x_bin <- binary(x, th)
+  y_bin <- binary(y, th)
+
+  x_values <- terra::values(x_bin)
+  y_values <- terra::values(y_bin)
+
+  valid_indices <- !is.na(x_values) & !is.na(y_values)
+  x_values <- x_values[valid_indices]
+  y_values <- y_values[valid_indices]
+
+  loss <- sum(x_values == 1 & y_values == 0)
+  stable0 <- sum(x_values == 0 & y_values == 0)
+  stable1 <- sum(x_values == 1 & y_values == 1)
+  gain <- sum(y_values == 1 & x_values == 0)
+  change <- gain + loss
+
+
+  total_pixels <- length(x_values)
+  pixel_area <- terra::res(x)[1] * terra::res(x)[2] / 1e6
+  total_area <- total_pixels * pixel_area
+
+  Compt.By.Models <- data.frame(
+    Metric = c("Loss", "Stable0", "Stable1",
+               "Gain", "PercLoss", "PercGain",
+               "SpeciesRangeChange", "CurrentRangeSize",
+               "FutureRangeSize.NoDisp", "FutureRangeSize.FullDisp"),
+      Value = c(loss,
+                stable0,
+                stable1,
+                gain,
+                round(100 * loss / (loss + stable1), 2),
+                round(100 * gain / (loss + stable1), 2),
+                round(100 * (gain - loss) / (loss + stable1), 2),
+                sum(x_values == 1),
+                sum(y_values == 1),
+                sum(y_values == 1) + gain
+      )
+  )
+
+  diff_raster <- y_bin - x_bin
+  diff_raster[diff_raster == -1] <- -2
+
+  result <- list(
+    Compt.By.Models = Compt.By.Models,
+    Diff.By.Pixel = diff_raster
+  )
+
+  return(result)
+}
+
+#' @title Plot Habitat Changes
+#' @description Plots the habitat changes as a bar chart.
+#' @param data A data frame containing the habitat change metrics.
+#' @examples
+#' HC_plot(result$Compt.By.Models)
+#' @export
+HC_plot <- function(data) {
+  # Filter the data to include only percentage metrics
+  data <- data[data$Metric %in% c("PercLoss", "PercGain", "SpeciesRangeChange"), ]
+
+  # Define custom colors for the metrics
+  custom_colors <- c("PercLoss" = "darkred", "PercGain" = "darkgreen", "SpeciesRangeChange" = "darkgray")
+
+  # Create the bar plot
+  ggplot(data, aes(x = Metric, y = Value, fill = Metric)) +
+    geom_bar(stat = "identity") +
+    theme_minimal() +
+    labs(title = "Habitat Change",
+         x = "Metric",
+         y = "Percentage",
+         fill = "Metric") +
+    scale_y_continuous(labels = scales::percent_format(scale = 1)) +
+    scale_fill_manual(values = custom_colors)
+}

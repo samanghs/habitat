@@ -1,0 +1,18 @@
+Package: habitat
+Title: Analyze and Compare Habitat Changes Using Raster Data
+Version: 0.1.1
+Imports:
+    terra,
+    ggplot2
+Authors@R: 
+    person("Saman", "Ghasemian Sorboni", , "Samangh.edu@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-1184-1484"))
+Description: The `habitat` package provides tools to analyze and compare changes between two raster datasets 
+    representing current and projected habitat distributions. It ensures compatibility of input data (e.g., extent, 
+    CRS, and resolution) and allows users to perform threshold-based binary conversion. The package computes 
+    habitat gain, loss, stable areas, and overall changes. This functionality is designed for ecological
+    researchers, conservation planners, and others working in habitat modeling and landscape analysis.
+License: GPL-3
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
