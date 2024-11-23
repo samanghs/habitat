@@ -1,4 +1,4 @@
-# Habitat Range Analysis Package
+# habitat: Analyze and Compare Habitat Changes Using Raster Data
 
 The 'habitat' R Package is a straightforward and accessible tool designed to help users quickly analyze and interpret habitat changes with minimal effort. Specifically tailored for new users and those unfamiliar with complex geospatial analysis workflows, this package streamlines the process of comparing habitat distributions between current and future scenarios.
 
