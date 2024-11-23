@@ -16,6 +16,7 @@ You can install the package from GitHub:
 ```r
 devtools::install_github("samanghs/habitat")
 
+# Example
 library(habitat)
 current_raster <- rast(nrows=10, ncols=10, vals=sample(c(0, 1), 100, replace=TRUE))
 future_raster <- rast(nrows=10, ncols=10, vals=sample(c(0, 1), 100, replace=TRUE))
