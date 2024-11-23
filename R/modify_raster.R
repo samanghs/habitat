@@ -1,20 +1,35 @@
 #' @title Modify Raster Parameters
-#' @description Modifies the CRS, extent, resolution, and applies crop and mask to a raster.
-#' @param raster A SpatRaster object to be modified.
-#' @param crs Optional. A character string specifying the new CRS (e.g., "EPSG:4326").
-#' @param extent Optional. A numeric vector of four values specifying the new extent (xmin, xmax, ymin, ymax).
-#' @param resolution Optional. A numeric value or a vector of two numeric values specifying the new resolution.
-#' @param crop_extent Optional. A SpatExtent object or numeric vector specifying the extent to crop to.
-#' @param mask Optional. A SpatRaster object to be used as a mask.
-#' @return A modified SpatRaster object.
+#' @description This function modifies the CRS, extent, resolution, and applies crop and mask operations to a raster. It provides a flexible way to adjust the spatial parameters of a raster dataset.
+#' @param raster A SpatRaster object to be modified. This represents the raster dataset that will undergo modifications.
+#' @param crs Optional. A character string specifying the new Coordinate Reference System (CRS) (e.g., "EPSG:4326"). If provided, the raster will be reprojected to this CRS.
+#' @param extent Optional. A numeric vector of four values specifying the new extent (xmin, xmax, ymin, ymax). If provided, the extent of the raster will be modified accordingly.
+#' @param resolution Optional. A numeric value or a vector of two numeric values specifying the new resolution. If provided, the raster will be resampled to this resolution.
+#' @param crop_extent Optional. A SpatExtent object or numeric vector specifying the extent to crop to. If provided, the raster will be cropped to this extent.
+#' @param mask Optional. A SpatRaster object to be used as a mask. If provided, the raster will be masked by this raster.
+#' @return A modified SpatRaster object. The returned raster will have the specified modifications applied.
+#' @details The function is designed to provide a comprehensive set of modifications to a raster dataset. This includes changing the CRS, adjusting the extent, resampling the resolution, cropping to a specified extent, and applying a mask. These modifications are useful for preparing raster data for analysis, visualization, or integration with other spatial datasets.
 #' @examples
+#' # Example usage with SpatRaster objects
+#' library(terra)
+#'
+#' # Create sample raster datasets
 #' r1 <- rast(nrows=10, ncols=10, vals=runif(100))
 #' r2 <- rast(nrows=11, ncols=11, vals=runif(100))
+#'
+#' # Modify the CRS and extent of the first raster
 #' modified_r1 <- modify_raster(r1, crs="EPSG:4326", extent=c(0, 1000, 0, 1000))
-#' modified_r2 <- modify_raster(r2, crs=modified_r1, extent=c(0, 1000, 0, 1000), crop_extent = modified_r1)
+#' plot(modified_r1, main="Modified Raster (CRS and Extent)")
+#'
+#' # Modify the CRS, extent, and crop the second raster
+#' modified_r2 <- modify_raster(r2, crs="EPSG:4326", extent=c(0, 1000, 0, 1000), crop_extent=modified_r1)
+#' plot(modified_r2, main="Modified Raster (CRS, Extent, and Crop)")
+#'
+#' # Apply a mask to the first raster
+#' mask <- rast(nrows=10, ncols=10, vals=sample(c(0, 1), 100, replace=TRUE))
+#' masked_r1 <- modify_raster(r1, mask=mask)
+#' plot(masked_r1, main="Masked Raster")
 #' @export
 modify_raster <- function(raster, crs=NULL, extent=NULL, resolution=NULL, crop_extent=NULL, mask=NULL) {
-
   if (!inherits(raster, "SpatRaster")) {
     stop("The input must be a SpatRaster object.")
   }
@@ -50,4 +65,3 @@ modify_raster <- function(raster, crs=NULL, extent=NULL, resolution=NULL, crop_e
 
   return(raster)
 }
-
