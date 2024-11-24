@@ -13,9 +13,9 @@ Authors@R:
     person("Sharareh", "Pourebrahim", , "Shararehp@sunway.edu.mym", role = "aut",
            comment = c(ORCID = "0000-0002-4485-2040"))
 Description: An R package for analyzing and comparing habitat and species distributions using 
-raster datasets. It supports threshold-based binary conversion, calculates habitat suitability 
-indices, and computes landscape metrics. Ideal for students, junior ecologists, environmental 
-researchers, and conservation planners.
+    raster datasets. It supports threshold-based binary conversion, calculates habitat suitability 
+    indices, and computes landscape metrics. Ideal for students, junior ecologists, environmental 
+    researchers, and conservation planners.
 License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
