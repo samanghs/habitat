@@ -12,12 +12,10 @@ person("Mehrdad", "Hadipour", , "mhadipour50@yahoo.com", role = "aut",
            comment = c(ORCID = "0000-0001-6026-8306"))
 person("Sharareh", "Pourebrahim", , "Shararehp@sunway.edu.mym", role = "aut",
            comment = c(ORCID = "0000-0002-4485-2040"))
-Description: The `habitat` package offers tools for analyzing and comparing changes in habitat 
-distributions using raster datasets. It is compatible with various datasets and supports 
-threshold-based binary conversion to identify suitable habitats. This simplified package is 
-particularly beneficial for students, users without expertise in programming, junior ecologists, 
-environmental researchers, and conservation planners. It provides comprehensive spatial 
-statistics and visualizations to support data-driven decision-making.
+Description: An R package for analyzing and comparing habitat and species distributions using 
+raster datasets. It supports threshold-based binary conversion, calculates habitat suitability 
+indices, and computes landscape metrics. Ideal for students, junior ecologists, environmental 
+researchers, and conservation planners.
 License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
