@@ -7,9 +7,9 @@ Imports:
     sf
 Authors@R: 
     person("Saman", "Ghasemian Sorboni", , "Samangh.edu@gmail.com", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0002-1184-1484")), 
+           comment = c(ORCID = "0000-0002-1184-1484")) 
     person("Mehrdad", "Hadipour", ,email = "Mhadipour50@yahoo.com", role = "aut",
-           comment = c(ORCID = "0000-0001-6026-8306")),
+           comment = c(ORCID = "0000-0001-6026-8306"))
     person("Sharareh", "Pourebrahim", ,email = "Shararehp@sunway.edu.mym", role = "aut",
            comment = c(ORCID = "0000-0002-4485-2040"))
 Description: An R package for analyzing and comparing habitat and species distributions using 
