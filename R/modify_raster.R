@@ -10,7 +10,7 @@
 #' @details The function is designed to provide a comprehensive set of modifications to a raster dataset. This includes changing the CRS, adjusting the extent, resampling the resolution, cropping to a specified extent, and applying a mask. These modifications are useful for preparing raster data for analysis, visualization, or integration with other spatial datasets.
 #' @examples
 #' # Example usage with SpatRaster objects
-#' library(terra)
+#'
 #'
 #' # Create sample raster datasets
 #' r1 <- rast(nrows=10, ncols=10, vals=runif(100))
