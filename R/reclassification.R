@@ -7,7 +7,7 @@
 #' @details The function is designed to take a continuous or categorical raster dataset and reclassify its values based on specified breakpoints (bins). This is useful for simplifying or categorizing raster data for further analysis, visualization, or modeling.
 #' @examples
 #' # Example usage with a SpatRaster object
-#' library(terra)
+#'
 #'
 #' # Create a sample raster dataset with random values
 #' raster <- rast(nrows=10, ncols=10, vals=runif(100))
