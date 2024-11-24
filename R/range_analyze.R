@@ -15,8 +15,8 @@
 #' @export
 analyze_habitat <- function(x1, x2, threshold = 0.5) {
   # Load the input and habitat raster files
-  input_raster <- x1
-  habitat_raster <- x2
+  input_raster <- rast(x1)
+  habitat_raster <- rast(x2)
 
   x2_mask <- habitat_raster > threshold
   masked_raster <- mask(input_raster, x2_mask, maskvalue=0)
