@@ -1,8 +1,10 @@
 
+
 .onAttach <- function(libname, pkgname) {
 
   required_packages <- c(
-    "terra", "ggplot2", "sf"
+    "terra", "ggplot2", "sf",
+    "ggspatial"
   )
 
   missing_packages <- required_packages[!(required_packages %in% installed.packages()[,"Package"])]
