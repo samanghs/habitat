@@ -5,7 +5,7 @@
 #' @return An sf object representing the raster converted to polygons.
 #' @details The function is designed to convert a raster dataset into a polygon. This is useful for visualizing raster data as vector data and for performing vector-based spatial analyses.
 #' @examples
-#' library(terra)
+#'
 #'
 #' # Create a sample binary raster
 #' binary_raster <- rast(nrows=10, ncols=10, vals=sample(c(0, 1), 100, replace=TRUE))
