@@ -1,10 +1,10 @@
-#' @title Load Essential Libraries for 'habitat' package
-#' @description 
+#' @title Load Essential Libraries for habitat
+#' @description This file ensures that all necessary libraries are installed and loaded when the habitat package is loaded.
 
 .onAttach <- function(libname, pkgname) {
 
   required_packages <- c(
-    "terra", "ggplot2"
+    "terra", "ggplot2", "sf"
   )
 
   missing_packages <- required_packages[!(required_packages %in% installed.packages()[,"Package"])]
