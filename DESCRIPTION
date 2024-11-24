@@ -3,7 +3,8 @@ Title: An R Package for Analyzing and Comparing Habitat Changes
 Version: 1.1.0
 Imports:
     terra,
-    ggplot2
+    ggplot2,
+    sf
 Authors@R: 
     person("Saman", "Ghasemian Sorboni", , "Samangh.edu@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-1184-1484"))
