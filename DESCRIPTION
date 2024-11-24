@@ -1,6 +1,6 @@
 Package: habitat
 Title: An R Package for Analyzing and Comparing Habitat Changes
-Version: 1.1.0
+Version: 1.2.0
 Imports:
     terra,
     ggplot2,
@@ -8,9 +8,9 @@ Imports:
 Authors@R: 
     person("Saman", "Ghasemian Sorboni", , "Samangh.edu@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-1184-1484"))
-person("Mehrdad", "Hadipour", , "mhadipour50@yahoo.com", role = "aut",
+    person("Mehrdad", "Hadipour", , "mhadipour50@yahoo.com", role = "aut",
            comment = c(ORCID = "0000-0001-6026-8306"))
-person("Sharareh", "Pourebrahim", , "Shararehp@sunway.edu.mym", role = "aut",
+    person("Sharareh", "Pourebrahim", , "Shararehp@sunway.edu.mym", role = "aut",
            comment = c(ORCID = "0000-0002-4485-2040"))
 Description: An R package for analyzing and comparing habitat and species distributions using 
 raster datasets. It supports threshold-based binary conversion, calculates habitat suitability 
