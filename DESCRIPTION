@@ -1,25 +1,19 @@
 Package: habitat
 Title: An R Package for Analyzing and Comparing Habitat Changes
+Date: 2024-11-24
 Version: 1.2.0
-Imports:
-    terra,
-    ggplot2,
-    sf
-Authors@R: 
-    person("Saman", "Ghasemian Sorboni", , "Samangh.edu@gmail.com", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0002-1184-1484")) 
-    person("Mehrdad", "Hadipour", ,email = "Mhadipour50@yahoo.com", role = "aut",
-           comment = c(ORCID = "0000-0001-6026-8306"))
-    person("Sharareh", "Pourebrahim", ,email = "Shararehp@sunway.edu.mym", role = "aut",
-           comment = c(ORCID = "0000-0002-4485-2040"))
-Maintainer@R:
-    person("Saman", "Ghasemian Sorboni", , "Samangh.edu@gmail.com", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0002-1184-1484"))
+Authors@R: Saman Ghasemian Sorboni, Mehrdad Hadipour, Sharareh Pourebrahim
+Maintainer: Saman Ghasemian Sorboni <samangh.edu@gmail.com>
 Description: An R package for analyzing and comparing habitat and species distributions using 
     raster datasets. It supports threshold-based binary conversion, calculates habitat suitability 
     indices, and computes landscape metrics. Ideal for students, junior ecologists, environmental 
     researchers, and conservation planners.
+Imports:
+    terra,
+    ggplot2,
+    sf
 License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
+Built: R 4.4.2; ; 2024-11-24
