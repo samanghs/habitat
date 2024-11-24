@@ -12,9 +12,9 @@
 #' Metric1 = c(0.1, 0.2), Metric2 = c(0.3, 0.4)))
 #'
 #' # Export the habitat change metrics to a CSV file
-#' hb_export_csv(result, "habitat_results.csv")
+#' hb_exp_csv(result, "habitat_results.csv")
 #' @export
-hb_export_csv <- function(result, file_path) {
+hb_exp_csv <- function(result, file_path) {
   write.csv(result$Compt.By.Models, file_path, row.names = FALSE)
 }
 
@@ -32,8 +32,8 @@ hb_export_csv <- function(result, file_path) {
 #' Metric1 = c(0.1, 0.2), Metric2 = c(0.3, 0.4)))
 #'
 #' # Export the habitat change metrics to a TXT file
-#' hb_export_txt(result, "habitat_results.txt")
+#' hb_exp_txt(result, "habitat_results.txt")
 #' @export
-hb_export_txt <- function(result, file_path) {
+hb_exp_txt <- function(result, file_path) {
   write.table(result$Compt.By.Models, file_path, row.names = FALSE, sep = "\t")
 }

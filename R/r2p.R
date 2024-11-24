@@ -20,12 +20,12 @@
 #' continuous_raster <- rast(nrows = 10, ncols = 10, vals = runif(100))
 #'
 #' # Convert the continuous raster to polygons
-#' continuous_polygons <- hb_raster_to_polygon(continuous_raster)
+#' continuous_polygons <- hb_ras_to_pol(continuous_raster)
 #'
 #' # Plot the resulting polygons
 #' plot(continuous_polygons)
 #' @export
-hb_raster_to_polygon <- function(raster, binary = FALSE) {
+hb_ras_to_pol <- function(raster, binary = FALSE) {
   if (!inherits(raster, "SpatRaster")) {
     stop("The input must be a SpatRaster object.")
   }

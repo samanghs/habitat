@@ -11,9 +11,9 @@
 #' binary_raster <- rast(nrows = 10, ncols = 10, vals = sample(c(0, 1), 100, replace = TRUE))
 #'
 #' # Calculate and print the suitable and unsuitable areas
-#' hb_calculate_area(binary_raster)
+#' hb_cal_area(binary_raster)
 #' @export
-hb_calculate_area <- function(binary_raster) {
+hb_cal_area <- function(binary_raster) {
   if (!inherits(binary_raster, "SpatRaster")) {
     stop("The input must be a SpatRaster object.")
   }

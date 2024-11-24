@@ -17,7 +17,7 @@
 #' r2 <- rast(nrows = 10, ncols = 10, vals = sample(c(0, 1), 100, replace = TRUE))
 #'
 #' # Analyze habitat changes
-#' result <- hb_habitat_range(r1, r2, th = 0.5)
+#' result <- hb_range(r1, r2, th = 0.5)
 #'
 #' # Display the computed metrics
 #' print(result$Compt.By.Models)
@@ -25,7 +25,7 @@
 #' # Plot the habitat changes
 #' hb_plot(result$Compt.By.Models)
 #' @export
-hb_habitat_range <- function(x, y, th) {
+hb_range <- function(x, y, th) {
   if (!inherits(x, c("SpatRaster")) || !inherits(y, c("SpatRaster"))) {
     stop("Both inputs must be SpatRaster objects.")
   }

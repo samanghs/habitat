@@ -10,13 +10,13 @@
 #' shapefile_path <- "path/to/shapefile.shp"
 #'
 #' # Load and prepare the shapefile
-#' shapefile_data <- hb_load_shapefile(shapefile_path)
+#' shapefile_data <- hb_load_shp(shapefile_path)
 #'
 #' # Check the CRS and extent
 #' print(st_crs(shapefile_data))
 #' print(st_bbox(shapefile_data))
 #' @export
-hb_load_shapefile <- function(file_path) {
+hb_load_shp <- function(file_path) {
   if (!file.exists(file_path)) {
     stop("The specified shapefile does not exist.")
   }

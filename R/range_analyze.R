@@ -9,11 +9,11 @@
 #' # Example usage
 #' x1 <- "path/to/DEM.tif"
 #' x2 <- "path/to/habitat.tif"
-#' result <- hb_analyze_habitat(x1, x2, threshold = 0.5)
+#' result <- hb_an_habitat(x1, x2, threshold = 0.5)
 #' print(result$statistics)
 #' print(result$plot)
 #' @export
-hb_analyze_habitat <- function(x1, x2, threshold = 0.5) {
+hb_an_habitat <- function(x1, x2, threshold = 0.5) {
   # Load the input and habitat raster files
   input_raster <- rast(x1)
   habitat_raster <- rast(x2)
