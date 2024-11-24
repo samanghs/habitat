@@ -20,7 +20,7 @@ The function is designed to take the habitat change metrics computed by the \cod
 }
 \examples{
 # Example usage with the results from habitat_range function
-library(ggplot2)
+
 
 # Assume result is obtained from habitat_range function
 # result <- habitat_range(r1, r2, th=0.5)

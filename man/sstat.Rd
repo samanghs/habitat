@@ -20,7 +20,7 @@ The function is designed to take a raster dataset and compute summary statistics
 }
 \examples{
 # Example usage with a SpatRaster object
-library(terra)
+
 
 # Create a sample raster dataset with random values
 raster <- rast(nrows=10, ncols=10, vals=runif(100))

@@ -24,7 +24,8 @@ The function is designed to facilitate the export of habitat change metrics to a
 # Example usage
 
 # Create a sample result list with habitat change metrics
-result <- list(Compt.By.Models = data.frame(Model = c("Model1", "Model2"), Metric1 = c(0.1, 0.2), Metric2 = c(0.3, 0.4)))
+result <- list(Compt.By.Models = data.frame(Model = c("Model1", "Model2"),
+Metric1 = c(0.1, 0.2), Metric2 = c(0.3, 0.4)))
 
 # Export the habitat change metrics to a TXT file
 export_txt(result, "habitat_results.txt")

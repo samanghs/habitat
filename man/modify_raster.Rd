@@ -37,7 +37,7 @@ The function is designed to provide a comprehensive set of modifications to a ra
 }
 \examples{
 # Example usage with SpatRaster objects
-library(terra)
+
 
 # Create sample raster datasets
 r1 <- rast(nrows=10, ncols=10, vals=runif(100))

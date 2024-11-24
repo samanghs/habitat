@@ -22,7 +22,7 @@ The function is designed to validate the compatibility of two raster datasets by
 }
 \examples{
 # Example usage with SpatRaster objects
-library(terra)
+
 
 # Create sample raster datasets
 r1 <- rast(nrows=10, ncols=10, vals=runif(100))
