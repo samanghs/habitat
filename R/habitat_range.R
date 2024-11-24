@@ -11,8 +11,7 @@
 #' @details The function is designed to compare two binary raster maps representing habitat data at different time points. It calculates various metrics to summarize the changes between the two maps, which can be used to assess the impact of environmental changes or conservation efforts.
 #' @examples
 #' # Example usage with SpatRaster objects
-#' library(terra)
-#' library(ggplot2)
+#' 
 #'
 #' # Create sample binary raster datasets
 #' r1 <- rast(nrows=10, ncols=10, vals=sample(c(0, 1), 100, replace=TRUE))
