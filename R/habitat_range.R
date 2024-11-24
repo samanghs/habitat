@@ -87,7 +87,7 @@ habitat_range <- function(x, y, th) {
 #' @details The function is designed to take the habitat change metrics computed by the `habitat_range` function and visualize them in a bar chart. This helps in understanding the extent of habitat changes visually.
 #' @examples
 #' # Example usage with the results from habitat_range function
-#' library(ggplot2)
+#'
 #'
 #' # Assume result is obtained from habitat_range function
 #' # result <- habitat_range(r1, r2, th=0.5)
