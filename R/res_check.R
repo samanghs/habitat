@@ -6,7 +6,7 @@
 #' @details The function is designed to validate the compatibility of two raster datasets by checking their extent, CRS, dimensions, and resolution. This is crucial for ensuring that subsequent spatial analyses can be performed accurately without encountering alignment issues.
 #' @examples
 #' # Example usage with SpatRaster objects
-#' library(terra)
+#'
 #'
 #' # Create sample raster datasets
 #' r1 <- rast(nrows=10, ncols=10, vals=runif(100))
