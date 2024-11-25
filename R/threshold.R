@@ -7,10 +7,10 @@ library(sdm)
 #' @return A data frame with evaluation metrics.
 #' @examples
 #' # Assume that the user has already trained their model and wants to extract the
-#' threshold value based on metrics such as sensitivity (sp), specificity (se), max(sp + se),
-#'  kappa, positive predictive value (ppv), negative predictive value (npv),
-#'  normalized mutual information (nmi), correct classification rate (ccr), prevalence,
-#'  and specific percentages (P10, P5, P1, P0).
+#'  #threshold value based on metrics such as sensitivity (sp), specificity (se), max(sp + se),
+#'  #kappa, positive predictive value (ppv), negative predictive value (npv),
+#'  #normalized mutual information (nmi), correct classification rate (ccr), prevalence,
+#'  #and specific percentages (P10, P5, P1, P0).
 #'
 #'  library(sdm)
 #' # sdm_model <- trained_model_object
@@ -42,7 +42,7 @@ hb_ext_eval <- function(sdm_model) {
 #' @return A list with optimal thresholds for different criteria.
 #' @examples
 #' # Assuming the user has already extracted evaluation metrics
-#' PLEASE READ hb_ext_eval FIRST
+#' #PLEASE READ hb_ext_eval FIRST
 #' # eval_metrics <- hb_ext_eval(sdm_model)
 #'
 #' # Calculate optimal thresholds
