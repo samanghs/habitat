@@ -10,7 +10,7 @@ The 'habitat' R Package is a straightforward and user-friendly tool designed to 
 5. Integration with sdm Package: Obtain raster results from the sdm package along with various threshold metrics for calculating, analyzing, and visualizing habitat changes.
 6. Ready-to-Export Outputs: Save results in common formats like CSV and TXT for reporting or further analysis.
 # Authors
-- [Saman Ghasemian Sorboni](https://orcid.org/0000-0002-4485-2040)
+- [Saman Ghasemian Sorboni](https://scholar.google.com/citations?user=FdRK6TAAAAAJ&hl=en)
 - [Mehrdad Hadipour](https://scholar.google.com/citations?user=eFFA8c8AAAAJ&hl=en)
 - [Sharareh Pourebrahim](https://scholar.google.com/citations?user=H72L0iMAAAAJ&hl=en)
 
