@@ -21,7 +21,7 @@ raster_to_spat <- function(raster_layer) {
 #' @param raster1 A SpatRaster or RasterLayer object representing the first habitat map.
 #' @param raster2 A SpatRaster or RasterLayer object representing the second habitat map.
 #' @return A RasterLayer object representing the habitat changes.
-#' @details This function ensures both input rasters are in the same CRS and extent, computes the differences, and generates a new raster with categories for gain (green), loss (red), stability (yellow), and absence (gray). It is useful for ecological and environmental studies to visualize how habitats have changed over time or under different conditions.
+#' @details hb_changes function ensures both input rasters are in the same CRS and extent, computes the differences, and generates a new raster with categories for gain (green), loss (red), stability (yellow), and absence (gray). It is useful for ecological and environmental studies to visualize how habitats have changed over time or under different conditions.
 #' @examples
 #' # Load sample rasters
 #' raster1 <- rast("path/to/first_raster.tif")
@@ -35,7 +35,7 @@ raster_to_spat <- function(raster_layer) {
 #' changes_raster <- hb_changes(raster1_binary, raster2_binary)
 #'
 #' # Plot changes
-#' plot_changes(changes_raster)
+#' hb_plot_changes(changes_raster)
 #' @export
 hb_changes <- function(raster1, raster2) {
   if (inherits(raster1, "SpatRaster")) {
