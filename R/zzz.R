@@ -4,7 +4,7 @@
 
   required_packages <- c(
     "terra", "ggplot2", "sf",
-    "ggspatial"
+    "ggspatial", "raster"
   )
 
   missing_packages <- required_packages[!(required_packages %in% installed.packages()[,"Package"])]
