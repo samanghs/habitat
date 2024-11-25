@@ -20,7 +20,6 @@ Designed to create a frequency table that summarizes the distribution of values 
 }
 \examples{
 # Example usage with a SpatRaster object
-library(terra)
 
 # Create a sample raster dataset with random values between 1 and 5
 raster <- rast(nrows = 10, ncols = 10, vals = sample(1:5, 100, replace = TRUE))
@@ -30,4 +29,7 @@ freq_table <- hb_frequency(raster)
 
 # Display the frequency table
 print(freq_table)
+}
+\references{
+Ghasemian Sorboni, S., Hadipour, M., & Pourebrahim, S (2024). habitat: An R Package for Analyzing and Comparing Habitat Changes. dataset. doi:.
 }

@@ -30,3 +30,6 @@ changes_raster <- hb_changes(raster1_binary, raster2_binary)
 # Plot changes
 hb_plot_changes(changes_raster)
 }
+\references{
+Ghasemian Sorboni, S., Hadipour, M., & Pourebrahim, S (2024). habitat: An R Package for Analyzing and Comparing Habitat Changes. dataset. doi:.
+}

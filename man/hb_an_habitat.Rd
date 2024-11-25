@@ -30,3 +30,6 @@ result <- hb_an_habitat(x1, x2, threshold = 0.5)
 print(result$statistics)
 print(result$plot)
 }
+\references{
+Ghasemian Sorboni, S., Hadipour, M., & Pourebrahim, S (2024). habitat: An R Package for Analyzing and Comparing Habitat Changes. dataset. doi:.
+}
