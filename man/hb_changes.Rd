@@ -18,7 +18,7 @@ A RasterLayer object representing the habitat changes.
 Compares two binary raster files and generates a new raster highlighting areas of gain, loss, stability, and absence. This function is specifically designed for comparing habitat changes between two time points or scenarios.
 }
 \details{
-This function ensures both input rasters are in the same CRS and extent, computes the differences, and generates a new raster with categories for gain (green), loss (red), stability (yellow), and absence (gray). It is useful for ecological and environmental studies to visualize how habitats have changed over time or under different conditions.
+hb_changes function ensures both input rasters are in the same CRS and extent, computes the differences, and generates a new raster with categories for gain (green), loss (red), stability (yellow), and absence (gray). It is useful for ecological and environmental studies to visualize how habitats have changed over time or under different conditions.
 }
 \examples{
 # Load sample rasters
@@ -33,5 +33,5 @@ raster2_binary <- hb_binary(raster2, th = 0.5)
 changes_raster <- hb_changes(raster1_binary, raster2_binary)
 
 # Plot changes
-plot_changes(changes_raster)
+hb_plot_changes(changes_raster)
 }
