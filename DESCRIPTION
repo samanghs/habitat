@@ -1,7 +1,7 @@
 Package: habitat
 Title: An R Package for Analyzing and Comparing Habitat Changes
-Date: 2024-11-25
-Version: 1.3.2
+Date: 2024-11-26
+Version: 1.4.1
 Authors@R: c( 
   person("Saman", "Ghasemian Sorboni", role = c("aut", "cre"),
   comment = c(ORCID = "0000-0002-1184-1484"), email = "samangh.edu@gmail.com"),
@@ -17,6 +17,7 @@ Description: An R package for analyzing and comparing habitat and species distri
     researchers, and conservation planners.
 Imports:
     terra,
+    raster,
     ggplot2,
     sf,
     ggspatial
