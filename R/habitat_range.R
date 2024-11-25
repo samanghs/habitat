@@ -111,3 +111,5 @@ hb_range_plot <- function(data) {
     scale_y_continuous(labels = scales::percent_format(scale = 1)) +
     scale_fill_manual(values = custom_colors)
 }
+#' @references
+#' Ghasemian Sorboni, S., Hadipour, M., & Pourebrahim, S (2024). habitat: An R Package for Analyzing and Comparing Habitat Changes. dataset. doi:.

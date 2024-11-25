@@ -27,6 +27,9 @@
 #' mask <- rast(nrows = 10, ncols = 10, vals = sample(c(0, 1), 100, replace = TRUE))
 #' masked_r1 <- hb_modify_raster(r1, mask = mask)
 #' plot(masked_r1, main = "Masked Raster")
+#' @references
+#' Ghasemian Sorboni, S., Hadipour, M., & Pourebrahim, S (2024). habitat: An R Package for Analyzing and Comparing Habitat Changes. dataset. doi:.
+
 #' @export
 hb_modify_raster <- function(raster, crs = NULL, extent = NULL, resolution = NULL, crop_extent = NULL, mask = NULL) {
   if (!inherits(raster, "SpatRaster")) {

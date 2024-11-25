@@ -36,6 +36,9 @@ raster_to_spat <- function(raster_layer) {
 #'
 #' # Plot changes
 #' hb_plot_changes(changes_raster)
+#' @references
+#' Ghasemian Sorboni, S., Hadipour, M., & Pourebrahim, S (2024). habitat: An R Package for Analyzing and Comparing Habitat Changes. dataset. doi:.
+
 #' @export
 hb_changes <- function(raster1, raster2) {
   if (inherits(raster1, "SpatRaster")) {
@@ -89,6 +92,9 @@ hb_changes <- function(raster1, raster2) {
 #'
 #' # Plot changes
 #' hb_plot_changes(changes_raster)
+#' @references
+#' Ghasemian Sorboni, S., Hadipour, M., & Pourebrahim, S (2024). habitat: An R Package for Analyzing and Comparing Habitat Changes. dataset. doi:.
+
 #' @export
 hb_plot_changes <- function(changes_raster) {
   # Convert RasterLayer to data frame for ggplot2

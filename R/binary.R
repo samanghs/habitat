@@ -16,6 +16,9 @@
 #'
 #' # Plot the resulting binary map
 #' plot(binary_map, main = "Binary Map (Threshold = 0.5)")
+#' @references
+#' Ghasemian Sorboni, S., Hadipour, M., & Pourebrahim, S (2024). habitat: An R Package for Analyzing and Comparing Habitat Changes. dataset. doi:.
+
 #' @export
 hb_binary <- function(x, th) {
   if (!inherits(x, c("RasterLayer", "SpatRaster"))) {

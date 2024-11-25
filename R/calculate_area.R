@@ -12,6 +12,9 @@
 #'
 #' # Calculate and print the suitable and unsuitable areas
 #' hb_cal_area(binary_raster)
+#' @references
+#' Ghasemian Sorboni, S., Hadipour, M., & Pourebrahim, S (2024). habitat: An R Package for Analyzing and Comparing Habitat Changes. dataset. doi:.
+
 #' @export
 hb_cal_area <- function(binary_raster) {
   if (!inherits(binary_raster, "SpatRaster")) {

@@ -16,6 +16,9 @@
 #'
 #' # Plot habitat map
 #' hb_plot(raster, main = "Sample Habitat Map", lonlat = TRUE, add_north_arrow = TRUE, background_color = "lightblue", add_legend = TRUE, habitat_palette = "viridis")
+#' @references
+#' Ghasemian Sorboni, S., Hadipour, M., & Pourebrahim, S (2024). habitat: An R Package for Analyzing and Comparing Habitat Changes. dataset. doi:.
+
 #' @export
 hb_plot <- function(raster, main = "Habitat Map", lonlat = TRUE, add_north_arrow = FALSE, background_color = "white", habitat_palette = "viridis", add_legend = TRUE) {
   if (!inherits(raster, "SpatRaster")) {
