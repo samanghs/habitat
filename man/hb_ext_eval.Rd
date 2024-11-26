@@ -16,11 +16,11 @@ A data frame with evaluation metrics.
 Extracts evaluation metrics including threshold, sensitivity, specificity, TSS, MCC, F1, Kappa, NMI, PHI, PPV, NPV, CCR, MCR, Omission, Commission, and Prevalence from a trained sdm model.
 }
 \examples{
-# Assume that the user has already trained their model and wants to extract the
-threshold value based on metrics such as sensitivity (sp), specificity (se), max(sp + se),
- kappa, positive predictive value (ppv), negative predictive value (npv),
- normalized mutual information (nmi), correct classification rate (ccr), prevalence,
- and specific percentages (P10, P5, P1, P0).
+# Assume that the user has already trained their model and wants to extract the-
+ # threshold value based on metrics such as sensitivity (sp), specificity (se), max(sp + se),
+ # kappa, positive predictive value (ppv), negative predictive value (npv),
+ # normalized mutual information (nmi), correct classification rate (ccr), prevalence,
+ # and specific percentages (P10, P5, P1, P0).
 
  library(sdm)
 # sdm_model <- trained_model_object

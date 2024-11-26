@@ -27,3 +27,6 @@ Designed to take the habitat change metrics computed by the \code{hb_habitat_ran
 # Plot the habitat changes
 hb_range_plot(result$Compt.By.Models)
 }
+\references{
+Ghasemian Sorboni, S., Hadipour, M., & Pourebrahim, S (2024). habitat: An R Package for Analyzing and Comparing Habitat Changes. dataset. doi:.
+}
