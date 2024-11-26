@@ -92,15 +92,15 @@ hb_range <- function(x, y, th) {
 #'
 #' # Plot the habitat changes
 #' hb_range_plot(result$Compt.By.Models)
+#' @references
+#' Ghasemian Sorboni, S., Hadipour, M., & Pourebrahim, S (2024). habitat: An R Package for Analyzing and Comparing Habitat Changes. dataset. doi:.
+
 #' @export
 hb_range_plot <- function(data) {
-  # Filter the data to include only percentage metrics
   data <- data[data$Metric %in% c("PercLoss", "PercGain", "SpeciesRangeChange"), ]
 
-  # Define custom colors for the metrics
   custom_colors <- c("PercLoss" = "darkred", "PercGain" = "darkgreen", "SpeciesRangeChange" = "darkgray")
 
-  # Create the bar plot
   ggplot(data, aes(x = Metric, y = Value, fill = Metric)) +
     geom_bar(stat = "identity") +
     theme_minimal() +
@@ -111,5 +111,3 @@ hb_range_plot <- function(data) {
     scale_y_continuous(labels = scales::percent_format(scale = 1)) +
     scale_fill_manual(values = custom_colors)
 }
-#' @references
-#' Ghasemian Sorboni, S., Hadipour, M., & Pourebrahim, S (2024). habitat: An R Package for Analyzing and Comparing Habitat Changes. dataset. doi:.

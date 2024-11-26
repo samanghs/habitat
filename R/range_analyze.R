@@ -17,7 +17,6 @@
 
 #' @export
 hb_an_habitat <- function(x1, x2, threshold = 0.5) {
-  # Load the input and habitat raster files
   input_raster <- rast(x1)
   habitat_raster <- rast(x2)
 
@@ -29,7 +28,7 @@ hb_an_habitat <- function(x1, x2, threshold = 0.5) {
   stats <- c(stats, SD = sd(data_values, na.rm = TRUE))
   print(stats)
 
-  # Create a histogram plot
+  # Create a histogram
   histogram <- ggplot() +
     geom_histogram(aes(x = data_values), bins = 30, fill = "skyblue", color = "black") +
     theme_minimal() +

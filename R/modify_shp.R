@@ -42,7 +42,6 @@ hb_modify_shp <- function(shapefile, crs = NULL, extent = NULL, crop = NULL, mas
     stop("The input must be an sf object.")
   }
 
-  # Modify CRS if provided
   if (!is.null(crs)) {
     if (inherits(crs, "sf")) {
       crs <- st_crs(crs)
@@ -50,7 +49,6 @@ hb_modify_shp <- function(shapefile, crs = NULL, extent = NULL, crop = NULL, mas
     shapefile <- st_transform(shapefile, crs)
   }
 
-  # Modify extent if provided
   if (!is.null(extent)) {
     if (inherits(extent, "sf")) {
       bbox <- st_bbox(extent)
@@ -60,7 +58,6 @@ hb_modify_shp <- function(shapefile, crs = NULL, extent = NULL, crop = NULL, mas
     }
   }
 
-  # Crop the shapefile if crop extent is provided
   if (!is.null(crop)) {
     if (inherits(crop, "sf")) {
       shapefile <- st_intersection(shapefile, crop)
@@ -69,7 +66,6 @@ hb_modify_shp <- function(shapefile, crs = NULL, extent = NULL, crop = NULL, mas
     }
   }
 
-  # Apply mask if provided
   if (!is.null(mask)) {
     if (inherits(mask, "sf")) {
       shapefile <- st_intersection(shapefile, mask)

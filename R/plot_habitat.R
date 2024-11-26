@@ -25,11 +25,9 @@ hb_plot <- function(raster, main = "Habitat Map", lonlat = TRUE, add_north_arrow
     stop("The input must be a SpatRaster object.")
   }
 
-  # Convert SpatRaster to data frame
   raster_df <- as.data.frame(raster, xy = TRUE, na.rm = TRUE)
   colnames(raster_df)[3] <- "value"
 
-  # Create the base ggplot
   p <- ggplot() +
     geom_raster(data = raster_df, aes(x = x, y = y, fill = value)) +
     scale_fill_viridis_c(option = habitat_palette, name = "Habitat Suitability") +
@@ -38,23 +36,19 @@ hb_plot <- function(raster, main = "Habitat Map", lonlat = TRUE, add_north_arrow
     theme(panel.background = element_rect(fill = background_color, color = NA),
           plot.background = element_rect(fill = background_color, color = NA))
 
-  # Add axes if lonlat is TRUE
   if (lonlat) {
     p <- p + coord_fixed()
   }
 
-  # Add North arrow
   if (add_north_arrow) {
     p <- p + annotation_north_arrow(location = "topright", which_north = "true",
                                     pad_x = unit(0.1, "in"), pad_y = unit(0.1, "in"),
                                     style = north_arrow_fancy_orienteering)
   }
 
-  # Add legend if requested
   if (!add_legend) {
     p <- p + theme(legend.position = "none")
   }
 
-  # Print the plot
   print(p)
 }

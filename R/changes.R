@@ -52,7 +52,6 @@ hb_changes <- function(raster1, raster2) {
     stop("Both inputs must be RasterLayer objects.")
   }
 
-  # Ensure both rasters have the same CRS and extent
   if (!compareCRS(raster1, raster2)) {
     raster2 <- projectRaster(raster2, crs(raster1))
   }
@@ -62,13 +61,12 @@ hb_changes <- function(raster1, raster2) {
 
   # Calculate changes
   changes <- overlay(raster1, raster2, fun = function(x1, x2) {
-    ifelse(x1 == 1 & x2 == 0, 1,  # loss (red)
-           ifelse(x1 == 0 & x2 == 1, 2,  # gain (green)
-                  ifelse(x1 == 1 & x2 == 1, 3,  # stable (yellow)
-                         ifelse(x1 == 0 & x2 == 0, 4, NA))))  # absence (gray)
+    ifelse(x1 == 1 & x2 == 0, 1,  # loss
+           ifelse(x1 == 0 & x2 == 1, 2,  # gain
+                  ifelse(x1 == 1 & x2 == 1, 3,  # stable
+                         ifelse(x1 == 0 & x2 == 0, 4, NA))))  # absence
   })
 
-  # Set categories
   levels(changes) <- data.frame(ID = 1:4, category = c("Loss", "Gain", "Stable", "Absent"))
 
   return(changes)

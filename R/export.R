@@ -37,3 +37,43 @@ hb_exp_csv <- function(result, file_path) {
 hb_exp_txt <- function(result, file_path) {
   write.table(result$Compt.By.Models, file_path, row.names = FALSE, sep = "\t")
 }
+
+# Load necessary libraries
+library(terra)
+
+#' @title Export Raster to File
+#' @description Exports a raster to a specified file format (.tif, .png, or .jpg).
+#' @param raster_data A raster (SpatRaster) object to be exported.
+#' @param file_path The file path where the raster will be saved. The extension should be .tif, .png, or .jpg.
+#' @return None. This function is used for its side effect of writing the raster to a file.
+#' @examples
+#' # Load sample raster data
+#' raster_data <- rast("path/to/raster.tif")
+#'
+#' # Export the raster to a .tif file
+#' hb_exp_raster(raster_data, "output_raster.tif")
+#'
+#' # Export the raster to a .png file
+#' hb_exp_raster(raster_data, "output_raster.png")
+#'
+#' # Export the raster to a .jpg file
+#' hb_exp_raster(raster_data, "output_raster.jpg")
+#' @export
+hb_exp_raster <- function(raster_data, file_path) {
+  # Check the file extension
+  ext <- tools::file_ext(file_path)
+
+  if (!inherits(raster_data, "SpatRaster")) {
+    stop("The input data must be a SpatRaster object.")
+  }
+
+  if (ext == "tif") {
+    writeRaster(raster_data, file_path, format = "GTiff")
+  } else if (ext == "png") {
+    writeRaster(raster_data, file_path, format = "PNG")
+  } else if (ext == "jpg" || ext == "jpeg") {
+    writeRaster(raster_data, file_path, format = "JPEG")
+  } else {
+    stop("Unsupported file extension. Please use .tif, .png, or .jpg.")
+  }
+}

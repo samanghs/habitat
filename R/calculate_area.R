@@ -21,15 +21,12 @@ hb_cal_area <- function(binary_raster) {
     stop("The input must be a SpatRaster object.")
   }
 
-  # Check if raster is binary
   if (!all(terra::values(binary_raster) %in% c(0, 1, NA))) {
     stop("The raster must be binary (contain only 0 and 1 values).")
   }
 
-  # Calculate the area of each cell in square meters
   cell_area_m2 <- terra::cellSize(binary_raster, unit = "m")
 
-  # Calculate the total area of suitable and unsuitable cells
   suitable_area_m2 <- sum(cell_area_m2[terra::values(binary_raster) == 1], na.rm = TRUE)
   unsuitable_area_m2 <- sum(cell_area_m2[terra::values(binary_raster) == 0], na.rm = TRUE)
 
