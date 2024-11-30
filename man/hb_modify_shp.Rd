@@ -53,6 +53,3 @@ plot(modified_shapefile, main = "Cropped Shapefile")
 modified_shapefile <- hb_modify_shp(shapefile, mask = shapefile2)
 plot(modified_shapefile, main = "Masked Shapefile")
 }
-\references{
-Ghasemian Sorboni, S., Hadipour, M., & Pourebrahim, S (2024). habitat: An R Package for Analyzing and Comparing Habitat Changes. dataset. doi:.
-}

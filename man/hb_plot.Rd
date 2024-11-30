@@ -44,6 +44,3 @@ raster <- rast(nrows = 10, ncols = 10, vals = runif(100))
 # Plot habitat map
 hb_plot(raster, main = "Sample Habitat Map", lonlat = TRUE, add_north_arrow = TRUE, background_color = "lightblue", add_legend = TRUE, habitat_palette = "viridis")
 }
-\references{
-Ghasemian Sorboni, S., Hadipour, M., & Pourebrahim, S (2024). habitat: An R Package for Analyzing and Comparing Habitat Changes. dataset. doi:.
-}

@@ -29,6 +29,3 @@ Extracts evaluation metrics including threshold, sensitivity, specificity, TSS, 
 eval_metrics <- hb_ext_eval(sdm_model)
 print(eval_metrics)
 }
-\references{
-Ghasemian Sorboni, S., Hadipour, M., & Pourebrahim, S (2024). habitat: An R Package for Analyzing and Comparing Habitat Changes. dataset. doi:.
-}

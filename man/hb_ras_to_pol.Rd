@@ -41,6 +41,3 @@ continuous_polygons <- hb_ras_to_pol(continuous_raster)
 # Plot the resulting polygons
 plot(continuous_polygons)
 }
-\references{
-Ghasemian Sorboni, S., Hadipour, M., & Pourebrahim, S (2024). habitat: An R Package for Analyzing and Comparing Habitat Changes. dataset. doi:.
-}

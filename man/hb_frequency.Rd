@@ -30,6 +30,3 @@ freq_table <- hb_frequency(raster)
 # Display the frequency table
 print(freq_table)
 }
-\references{
-Ghasemian Sorboni, S., Hadipour, M., & Pourebrahim, S (2024). habitat: An R Package for Analyzing and Comparing Habitat Changes. dataset. doi:.
-}
