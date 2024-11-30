@@ -18,9 +18,7 @@ library(sdm)
 #' # Extract evaluation metrics
 #' eval_metrics <- hb_ext_eval(sdm_model)
 #' print(eval_metrics)
-#' @references
-#' Ghasemian Sorboni, S., Hadipour, M., & Pourebrahim, S (2024). habitat: An R Package for Analyzing and Comparing Habitat Changes. dataset. doi:.
-
+#' @import sdm
 #' @export
 hb_ext_eval <- function(sdm_model) {
   if (!inherits(sdm_model, "sdmModels")) {

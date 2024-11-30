@@ -33,8 +33,6 @@
 #' # Apply a mask to the shapefile using another shapefile
 #' modified_shapefile <- hb_modify_shp(shapefile, mask = shapefile2)
 #' plot(modified_shapefile, main = "Masked Shapefile")
-#' @references
-#' Ghasemian Sorboni, S., Hadipour, M., & Pourebrahim, S (2024). habitat: An R Package for Analyzing and Comparing Habitat Changes. dataset. doi:.
 
 #' @export
 hb_modify_shp <- function(shapefile, crs = NULL, extent = NULL, crop = NULL, mask = NULL) {

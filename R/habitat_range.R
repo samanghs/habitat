@@ -92,8 +92,6 @@ hb_range <- function(x, y, th) {
 #'
 #' # Plot the habitat changes
 #' hb_range_plot(result$Compt.By.Models)
-#' @references
-#' Ghasemian Sorboni, S., Hadipour, M., & Pourebrahim, S (2024). habitat: An R Package for Analyzing and Comparing Habitat Changes. dataset. doi:.
 
 #' @export
 hb_range_plot <- function(data) {
