@@ -1,7 +1,7 @@
 Package: habitat
 Title: An R Package for Analyzing and Comparing Habitat Changes
-Date: 2024-11-27
-Version: 1.4-10
+Date: 2024-12-15
+Version: 1.4-12
 Authors@R: c( 
   person("Saman", "Ghasemian Sorboni", role = c("aut", "cre"),
   comment = c(ORCID = "0000-0002-1184-1484"), email = "samangh.edu@gmail.com"),
