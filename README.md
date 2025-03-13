@@ -12,13 +12,12 @@ The 'habitat' R Package is a straightforward and user-friendly tool designed to 
 # Authors
 - [Saman Ghasemian Sorboni](https://scholar.google.com/citations?user=FdRK6TAAAAAJ&hl=en)
 - [Mehrdad Hadipour](https://scholar.google.com/citations?user=eFFA8c8AAAAJ&hl=en)
-- [Sharareh Pourebrahim](https://scholar.google.com/citations?user=H72L0iMAAAAJ&hl=en)
 
 # Contributing
 We welcome contributions from the community! If you have any suggestions or improvements, please infrom us! <samangh.edu@gmail.com>
 # Citation
 If you use habitat in your research, please cite it as follows:
-Ghasemian Sorboni, S., Hadipour, M., & Pourebrahim, S. (2024). habitat: An R Package for Analyzing and Comparing Habitat Changes. dataset. doi:.
+Ghasemian Sorboni, S., & Hadipour, M. (2024). habitat: An R Package for Analyzing and Comparing Habitat Changes. dataset. doi:10.13140/RG.2.2.19739.99360.
 
 
 ## Installation
