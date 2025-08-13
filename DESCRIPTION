@@ -5,15 +5,12 @@ Version: 1.5-00
 Authors@R: c( 
   person("Saman", "Ghasemian Sorboni", role = c("aut", "cre"),
   comment = c(ORCID = "0000-0002-1184-1484"), email = "samangh.edu@gmail.com"),
-  person("Mehrdad", "Hadipour", role = "aut", comment = c(ORCID = "0000-0001-6026-8306")),
-  person("Sharareh", "Pourebrahim", role = "aut", comment = c(ORCID = "0000-0002-4485-2040")))
+  person("Mehrdad", "Hadipour", role = "aut", comment = c(ORCID = "0000-0001-6026-8306")))
 Author: Saman Ghasemian Sorboni [aut, cre],
-  Mehrdad Hadipour [aut],
-  Sharareh Pourebrahim [aut]
+  Mehrdad Hadipour [aut]
 Maintainer: Saman Ghasemian Sorboni <samangh.edu@gmail.com>
 Description: An R package for analyzing and comparing habitat and species distributions using 
-    raster datasets. It supports threshold-based binary conversion, calculates habitat suitability 
-    indices, and computes landscape metrics. Ideal for students, ecologists, environmental 
+    raster datasets. Ideal for students, ecologists, environmental 
     researchers, and conservation planners.
 Imports:
     terra,
