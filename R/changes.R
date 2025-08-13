@@ -100,9 +100,13 @@ hb_plot_changes <- function(changes_raster, title = "Changes", xlab = "Longitude
   changes_df <- as.data.frame(rasterToPoints(changes_raster), stringsAsFactors = TRUE)
   colnames(changes_df) <- c("x", "y", "category")
   changes_df$category <- factor(changes_df$category, levels = 1:4, labels = c("Loss", "Gain", "Stable", "Absent"))
+  
+  # Round coordinates to reduce floating-point precision issues
+  changes_df$x <- round(changes_df$x, 6)
+  changes_df$y <- round(changes_df$y, 6)
 
   ggplot() +
-    geom_tile(data = changes_df, aes(x = x, y = y, fill = category)) +
+    geom_raster(data = changes_df, aes(x = x, y = y, fill = category)) +
     scale_fill_manual(values = c("Loss" = "red", "Gain" = "green", "Stable" = "yellow", "Absent" = "gray"), name = "Change") +
     theme_minimal() +
     labs(title = title, x = xlab, y = ylab) +
