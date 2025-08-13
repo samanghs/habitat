@@ -16,9 +16,9 @@ A list with optimal thresholds for different criteria.
 Calculates various optimal thresholds based on different criteria such as max(sp + se), max(kappa), and others.
 }
 \examples{
-# Assuming the user has already extracted evaluation metrics
-PLEASE READ hb_ext_eval FIRST
-# eval_metrics <- hb_ext_eval(sdm_model)
+Not run:
+Assuming the user has already extracted evaluation metrics
+example_function(metrics)
 
 # Calculate optimal thresholds
 thresholds <- hb_opt_th(eval_metrics)
@@ -29,7 +29,6 @@ print(thresholds)
 # binary_map <- hb_binary(r, th = max_sp_se_threshold)
 # habitat_analysis <- hb_an_habitat(x1, x2, threshold = max_sp_se_threshold)
 # range_analysis <- hb_range(x, y, th = max_sp_se_threshold)
-}
-\references{
-Ghasemian Sorboni, S., Hadipour, M., & Pourebrahim, S (2024). habitat: An R Package for Analyzing and Comparing Habitat Changes. dataset. doi:.
+
+End(Not run)
 }

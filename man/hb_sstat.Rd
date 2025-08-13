@@ -30,6 +30,3 @@ raster_summary <- hb_sstat(raster)
 # Display the summary statistics
 print(raster_summary)
 }
-\references{
-Ghasemian Sorboni, S., Hadipour, M., & Pourebrahim, S (2024). habitat: An R Package for Analyzing and Comparing Habitat Changes. dataset. doi:.
-}

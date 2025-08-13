@@ -12,7 +12,7 @@ hb_changes(raster1, raster2)
 \item{raster2}{A SpatRaster or RasterLayer object representing the second habitat map.}
 }
 \value{
-A RasterLayer object representing the habitat changes.
+A SpatRaster object representing the habitat changes.
 }
 \description{
 Compares two binary raster files and generates a new raster highlighting areas of gain, loss, stability, and absence. This function is specifically designed for comparing habitat changes between two time points or scenarios.
