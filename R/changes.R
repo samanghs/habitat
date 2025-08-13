@@ -58,7 +58,6 @@ hb_changes <- function(raster1, raster2) {
     raster2 <- resample(raster2, raster1)
   }
 
-  # Calculate changes
   changes <- lapp(c(raster1, raster2), fun = function(x1, x2) {
     ifelse(x1 == 1 & x2 == 0, 1,  # loss
            ifelse(x1 == 0 & x2 == 1, 2,  # gain
@@ -66,13 +65,13 @@ hb_changes <- function(raster1, raster2) {
                          ifelse(x1 == 0 & x2 == 0, 4, NA))))  # absence
   })
 
-  # Add category labels
-  categories <- data.frame(value = 1:4,
-                           category = c("Loss", "Gain", "Stable", "Absent"))
-  cats(changes) <- categories
+  # Add category labels (terra)
+  categories(changes) <- data.frame(value = 1:4,
+                                    category = c("Loss", "Gain", "Stable", "Absent"))
 
   return(changes)
 }
+
 
 #' @title Plot Habitat Changes (terra)
 #' @description Plots a SpatRaster highlighting areas of habitat gain, loss, stability, and absence using terra's native plotting.
