@@ -104,12 +104,18 @@ hb_plot_changes <- function(changes_raster, title = "Changes", xlab = "Longitude
   # Round coordinates to reduce floating-point precision issues
   changes_df$x <- round(changes_df$x, 6)
   changes_df$y <- round(changes_df$y, 6)
+  
+  # Use cell size to set tile width/height and avoid gaps or shifting
+  res_vals <- res(changes_raster)
+  resx <- res_vals[1]
+  resy <- res_vals[2]
 
   ggplot() +
-    geom_raster(data = changes_df, aes(x = x, y = y, fill = category)) +
+    geom_tile(data = changes_df, aes(x = x, y = y, fill = category),
+              width = resx, height = resy, color = NA) +
     scale_fill_manual(values = c("Loss" = "red", "Gain" = "green", "Stable" = "yellow", "Absent" = "gray"), name = "Change") +
     theme_minimal() +
     labs(title = title, x = xlab, y = ylab) +
-    coord_fixed() +
+    coord_fixed(expand = FALSE) +
     theme(panel.background = element_rect(fill = bg_color, color = NA))
 }
