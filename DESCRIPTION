@@ -9,19 +9,17 @@ Authors@R: c(
 Author: Saman Ghasemian Sorboni [aut, cre],
   Mehrdad Hadipour [aut]
 Maintainer: Saman Ghasemian Sorboni <samangh.edu@gmail.com>
-Description: An R package for analyzing and comparing habitat and species distributions using 
-    raster datasets. Ideal for students, ecologists, environmental 
-    researchers, and conservation planners.
+Description: An R package for analyzing and comparing habitat and species distributions changes. Ideal for students, ecologists, environmental researchers, and conservation planners.
 Imports:
     terra,
     raster,
     ggplot2,
     sf,
-    ggspatial
-Suggests:
+    ggspatial,
     sdm,
-    sp,
     tidyr
+Suggests:
+    sp
 License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
