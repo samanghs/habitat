@@ -5,18 +5,18 @@
 #' @return A binary RasterLayer or SpatRaster where values greater than the specified threshold are `TRUE`, and values less than or equal to the threshold are `FALSE`.
 #' @details This function is designed to convert a continuous raster dataset into a binary map. This is particularly useful for applications requiring binary classification of data, such as presence/absence mapping or suitability analysis.
 #' @examples
+#' \dontrun{
 #' # Example usage with a SpatRaster object
 #'
-#'
 #' # Create a sample raster dataset with random values
-#' r <- rast(nrows = 10, ncols = 10, vals = runif(100))
+#' r <- terra::rast(nrows = 10, ncols = 10, vals = runif(100))
 #'
 #' # Convert the raster to a binary map using a threshold of 0.5
 #' binary_map <- hb_binary(r, th = 0.5)
 #'
 #' # Plot the resulting binary map
 #' plot(binary_map, main = "Binary Map (Threshold = 0.5)")
-
+#' }
 #' @export
 hb_binary <- function(x, th) {
   if (!inherits(x, c("RasterLayer", "SpatRaster"))) {

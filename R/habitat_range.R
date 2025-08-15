@@ -10,12 +10,8 @@
 #' }
 #' @details Designed to compare two binary raster maps representing habitat data at different time points. Calculates various metrics to summarize the changes between the two maps, which can be used to assess the impact of environmental changes or conservation efforts.
 #' @examples
-#' # Example usage with SpatRaster objects
-#'
-#' # Create sample binary raster datasets
-#' r1 <- rast(nrows = 10, ncols = 10, vals = sample(c(0, 1), 100, replace = TRUE))
-#' r2 <- rast(nrows = 10, ncols = 10, vals = sample(c(0, 1), 100, replace = TRUE))
-#'
+#' \dontrun{
+#' # Create sample binary raster datasets or load it: for instance "r1" and "r2"
 #' # Analyze habitat changes
 #' result <- hb_range(r1, r2, th = 0.5)
 #'
@@ -24,6 +20,8 @@
 #'
 #' # Plot the habitat changes
 #' hb_plot(result$Compt.By.Models)
+#' }
+
 #' @export
 hb_range <- function(x, y, th) {
   if (!inherits(x, c("SpatRaster")) || !inherits(y, c("SpatRaster"))) {
@@ -85,14 +83,13 @@ hb_range <- function(x, y, th) {
 #' @return None. This function is used for its side effect of creating and displaying the plot.
 #' @details Designed to take the habitat change metrics computed by the `hb_habitat_range` function and visualize them in a bar chart. This helps in understanding the extent of habitat changes visually.
 #' @examples
-#' # Example usage with the results from hb_habitat_range function
-#'
+#' \dontrun{
 #' # Assume result is obtained from hb_habitat_range function
 #' # result <- hb_habitat_range(r1, r2, th = 0.5)
 #'
 #' # Plot the habitat changes
-#' hb_range_plot(result$Compt.By.Models)
-
+#' hb_range_plot(result)
+#' }
 #' @export
 hb_range_plot <- function(data) {
   data <- data[data$Metric %in% c("PercLoss", "PercGain", "SpeciesRangeChange"), ]

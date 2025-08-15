@@ -4,16 +4,19 @@
 #' @return A data frame containing the frequency of each raster value. The data frame includes two columns: `Value`, representing the unique values in the raster, and `Frequency`, indicating the number of times each value occurs.
 #' @details Designed to create a frequency table that summarizes the distribution of values within a raster dataset, this function is useful for understanding the composition and variability of the raster data.
 #' @examples
-#' # Example usage with a SpatRaster object
-#'
+#' \dontrun{
 #' # Create a sample raster dataset with random values between 1 and 5
-#' raster <- rast(nrows = 10, ncols = 10, vals = sample(1:5, 100, replace = TRUE))
+#' raster <- terra::rast(
+#'   nrows = 10, ncols = 10,
+#'   vals = sample(1:5, 100, replace = TRUE)
+#' )
 #'
 #' # Generate the frequency table for the raster values
 #' freq_table <- hb_frequency(raster)
 #'
 #' # Display the frequency table
 #' print(freq_table)
+#' }
 
 #' @export
 hb_frequency <- function(raster) {

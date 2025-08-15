@@ -25,19 +25,21 @@ raster_to_spat <- function(raster_layer) {
 #' @return A SpatRaster object representing the habitat changes.
 #' @details hb_changes function ensures both input rasters are in the same CRS and extent, computes the differences, and generates a new raster with categories for gain (green), loss (red), stability (yellow), and absence (gray). It is useful for ecological and environmental studies to visualize how habitats have changed over time or under different conditions.
 #' @examples
-#' # Load sample rasters
-#' raster1 <- rast("path/to/first_raster.tif")
-#' raster2 <- rast("path/to/second_raster.tif")
+#' \dontrun{
+#' # Create two sample rasters
+#' r1 <- terra::rast(nrows = 10, ncols = 10, vals = runif(100))
+#' r2 <- terra::rast(nrows = 10, ncols = 10, vals = runif(100))
 #'
 #' # Convert to binary
-#' raster1_binary <- hb_binary(raster1, th = 0.5)
-#' raster2_binary <- hb_binary(raster2, th = 0.5)
+#' raster1_binary <- hb_binary(r1, th = 0.5)
+#' raster2_binary <- hb_binary(r2, th = 0.5)
 #'
 #' # Calculate changes
 #' changes_raster <- hb_changes(raster1_binary, raster2_binary)
 #'
 #' # Plot changes
 #' hb_plot_changes(changes_raster)
+#' }
 #' @export
 hb_changes <- function(raster1, raster2) {
   # Normalize inputs to SpatRaster
@@ -84,8 +86,12 @@ hb_changes <- function(raster1, raster2) {
 #' @param bg_color Optional. Background color of the plot region and NA cells. Default is "white".
 #' @details Uses terra::plot() for fast, seam-free visualization of rasters.
 #' @examples
-#' # changes_raster <- hb_changes(raster1_binary, raster2_binary)
-#' # hb_plot_changes(changes_raster, title = "Habitat Changes")
+#' \dontrun{
+#' changes_raster <- hb_changes(r1, r2)
+#'
+#' # Plot habitat changes
+#' hb_plot_changes(changes_raster, title = "Habitat Changes")
+#' }
 #' @export
 hb_plot_changes <- function(changes_raster, title = "Changes", xlab = "Longitude", ylab = "Latitude", bg_color = "white") {
   # Normalize to SpatRaster

@@ -21,22 +21,23 @@ trend_analysis <- function(values) {
 #' @param time_points A numeric vector of time points corresponding to the raster files (e.g., 2022, 2023).
 #' @return A `SpatRaster` object representing the multidimensional dataset.
 #' @examples
-#' # List of raster files
-#' raster_files <- c("path/to/raster1.tif", rast("path/to/raster2.tif"))
-#' # Corresponding time points
+#' \dontrun{
+#' # Create sample rasters or load it: "r1" and "r2"
+#' raster_files <- list(r1, r2)
 #' time_points <- c(2022, 2023)
+#'
 #' # Create multidimensional raster layer
 #' multidimensional_raster <- hb_multiD_raster(raster_files, time_points)
 #'
-#'  # Aggregate multidimensional raster to compute the mean
+#' # Aggregate to compute the mean
 #' aggregated_raster <- hb_agg_md_raster(multidimensional_raster, fun = mean)
 #'
-#' # Analyze changes using statistical summaries
+#' # Analyze changes
 #' trends <- hb_analyze_changes(multidimensional_raster, fun = trend_analysis)
 #'
-#' # Plot the time series data (output_path is optional)
-#' hb_plot_timesrs(trends, output_path = "path/to/timesrs_plot.tif")
-#' @import terra
+#' # Plot the time series data
+#' hb_plot_timesrs(trends, output_path = tempfile(fileext = ".tif"))
+#' }
 #' @export
 hb_multiD_raster <- function(raster_files, time_points) {
   rasters <- lapply(raster_files, function(x) {
@@ -62,22 +63,17 @@ hb_multiD_raster <- function(raster_files, time_points) {
 #' @param fun A function to apply for aggregation (e.g., mean, sum).
 #' @return A `SpatRaster` object representing the aggregated raster.
 #' @examples
-#' # List of raster files
-#' raster_files <- c("path/to/raster1.tif", rast("path/to/raster2.tif"))
-#' # Corresponding time points
+#' \dontrun{
+#' # Same synthetic setup as in multidimensional
+#' raster_files <- list(r1, r2)
 #' time_points <- c(2022, 2023)
-#' # Create multidimensional raster layer
+#'
 #' multidimensional_raster <- hb_multiD_raster(raster_files, time_points)
-#'
-#'  # Aggregate multidimensional raster to compute the mean
 #' aggregated_raster <- hb_agg_md_raster(multidimensional_raster, fun = mean)
-#'
-#' # Analyze changes using statistical summaries
 #' trends <- hb_analyze_changes(multidimensional_raster, fun = trend_analysis)
 #'
-#' # Plot the time series data (output_path is optional)
-#' hb_plot_timesrs(trends, output_path = "path/to/timesrs_plot.tif")
-#' @import terra
+#' hb_plot_timesrs(trends, output_path = tempfile(fileext = ".tif"))
+#' }
 #' @export
 hb_agg_md_raster <- function(multidimensional_raster, fun = mean) {
   aggregated_raster <- tapp(multidimensional_raster, index = time(multidimensional_raster), fun = fun)
@@ -92,23 +88,18 @@ hb_agg_md_raster <- function(multidimensional_raster, fun = mean) {
 #' @param fun A function to compute the statistical summary (e.g., trend, anomaly detection).
 #' @return A data frame containing the statistical summaries.
 #' @examples
-#' # List of raster files
-#' raster_files <- c("path/to/raster1.tif", rast("path/to/raster2.tif"))
-#' # Corresponding time points
+#' \dontrun{
+#' raster_files <- list(r1, r2)
 #' time_points <- c(2022, 2023)
-#' # Create multidimensional raster layer
-#' multidimensional_raster <- hb_multiD_raster(raster_files, time_points)
 #'
-#'  # Aggregate multidimensional raster to compute the mean
+#' multidimensional_raster <- hb_multiD_raster(raster_files, time_points)
 #' aggregated_raster <- hb_agg_md_raster(multidimensional_raster, fun = mean)
 #'
-#' # Analyze changes using statistical summaries
-#' # NOTE: Depending on your dataset, it is normal for calculations to take some time.
+#' # NOTE: Depending on your dataset, calculations may take time
 #' trends <- hb_analyze_changes(multidimensional_raster, fun = trend_analysis)
 #'
-#' # Plot the time series data (output_path is optional)
-#' hb_plot_timesrs(trends, output_path = "path/to/timesrs_plot.tif")
-#' @import terra
+#' hb_plot_timesrs(trends, output_path = tempfile(fileext = ".tif"))
+#' }
 #' @export
 hb_analyze_changes <- function(multidimensional_raster, fun = trend) {
   summary_stats <- app(multidimensional_raster, fun)
@@ -133,14 +124,19 @@ hb_analyze_changes <- function(multidimensional_raster, fun = trend) {
 #' @param output_path A character string representing the file path to save the plot. If `NULL`, the plot will not be saved to a file.
 #' @return A ggplot object representing the time series plot.
 #' @examples
-#' # Plot the time series data (output_path is optional)
-#' hb_plot_timesrs(trends, lon_min = -10, lon_max = 10, lat_min = 35, lat_max = 45,
-#'                 low_color = "blue", mid_color = "white", high_color = "red",
-#'                 x_label = "Longitude", y_label = "Latitude", plot_title = "My Custom Title",
-#'                 bg_color = "black", output_path = "path/to/timesrs_plot.tif")
-#' @import ggplot2
-#' @import terra
-#' @import tidyr
+#' \dontrun{
+#' # Create dummy trends data for plotting
+#' trends <- list(data = matrix(runif(100), ncol = 10))
+#'
+#' hb_plot_timesrs(trends,
+#'   lon_min = -10, lon_max = 10, lat_min = 35, lat_max = 45,
+#'   low_color = "blue", mid_color = "white", high_color = "red",
+#'   x_label = "Longitude", y_label = "Latitude",
+#'   plot_title = "My Custom Title",
+#'   bg_color = "black",
+#'   output_path = tempfile(fileext = ".tif")
+#' )
+#' }
 #' @export
 hb_plot_timesrs <- function(trends, lon_min = NULL, lon_max = NULL, lat_min = NULL, lat_max = NULL,
                             low_color = "darkred", mid_color = "gray90", high_color = "darkblue",

@@ -7,19 +7,19 @@ library(terra)
 #' @param exclude_value The value to exclude (e.g., FALSE or 0).
 #' @return A filtered raster or vector object with the specified value removed.
 #' @examples
-#' # Load sample raster data
-#' raster_data <- rast("path/to/binarized_raster.tif")
-#'
+#' \dontrun{
+#' # Create a sample binary raster
 #' # Exclude the specified value (e.g., 0)
 #' filtered_data <- hb_exclude_value(raster_data, exclude_value = 0)
-#'
-#' # If you have a SpatVector and want to filter it:
-#' polygon_data <- vect("path/to/polygon.shp")
-#' filtered_polygon <- hb_exclude_value(polygon_data, exclude_value = 0)
-#'
-#' # Plot the results
 #' plot(filtered_data)
+#'
+#' # Example with a SpatVector
+#' coords <- matrix(runif(20), ncol = 2)
+#' polygon_data <- terra::vect(coords, type = "polygons")
+#' filtered_polygon <- hb_exclude_value(polygon_data, exclude_value = 0)
 #' plot(filtered_polygon)
+#' }
+
 #' @export
 hb_exclude_value <- function(data, exclude_value) {
   if (inherits(data, "SpatRaster")) {

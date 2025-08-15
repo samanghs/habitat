@@ -8,31 +8,39 @@
 #' @return A modified sf object with the specified modifications applied.
 #' @details Designed to provide a comprehensive set of modifications to a shapefile dataset. This includes changing the CRS, adjusting the extent, cropping, and masking using other shapefiles.
 #' @examples
-#' # Example usage with sf objects
+#' \dontrun{
+#' # Create two example sf polygons (or load it)
+#' library(sf)
+#' poly1 <- st_as_sf(data.frame(
+#'   id = 1,
+#'   geom = st_sfc(st_polygon(list(rbind(
+#'     c(0, 0), c(1, 0), c(1, 1), c(0, 1), c(0, 0)
+#'   ))))
+#' ))
 #'
-#' # Load a sample shapefile
-#' shapefile_path <- "path/to/shapefile.shp"
-#' shapefile <- st_read(shapefile_path)
+#' poly2 <- st_as_sf(data.frame(
+#'   id = 2,
+#'   geom = st_sfc(st_polygon(list(rbind(
+#'     c(0.5, 0.5), c(1.5, 0.5), c(1.5, 1.5), c(0.5, 1.5), c(0.5, 0.5)
+#'   ))))
+#' ))
 #'
-#' # Load another sample shapefile to use for operations
-#' shapefile2_path <- "path/to/shapefile2.shp"
-#' shapefile2 <- st_read(shapefile2_path)
-#'
-#' # Modify the CRS using another shapefile's CRS
-#' modified_shapefile <- hb_modify_shp(shapefile, crs = shapefile2)
+#' # Modify the CRS using another object's CRS
+#' modified_shapefile <- hb_modify_shp(poly1, crs = poly2)
 #' plot(modified_shapefile, main = "Modified Shapefile (CRS)")
 #'
-#' # Modify the extent using another shapefile's extent
-#' modified_shapefile <- hb_modify_shp(shapefile, extent = shapefile2)
+#' # Modify the extent using another object's extent
+#' modified_shapefile <- hb_modify_shp(poly1, extent = poly2)
 #' plot(modified_shapefile, main = "Modified Shapefile (Extent)")
 #'
-#' # Crop the shapefile using another shapefile
-#' modified_shapefile <- hb_modify_shp(shapefile, crop = shapefile2)
+#' # Crop the shapefile using another
+#' modified_shapefile <- hb_modify_shp(poly1, crop = poly2)
 #' plot(modified_shapefile, main = "Cropped Shapefile")
 #'
-#' # Apply a mask to the shapefile using another shapefile
-#' modified_shapefile <- hb_modify_shp(shapefile, mask = shapefile2)
+#' # Apply a mask using another shapefile
+#' modified_shapefile <- hb_modify_shp(poly1, mask = poly2)
 #' plot(modified_shapefile, main = "Masked Shapefile")
+#' }
 
 #' @export
 hb_modify_shp <- function(shapefile, crs = NULL, extent = NULL, crop = NULL, mask = NULL) {

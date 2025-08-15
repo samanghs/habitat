@@ -7,20 +7,20 @@ library(raster)
 #' @param output_path A character string representing the file path to save the merged raster. If `NULL`, the raster will not be saved to a file.
 #' @return A `RasterLayer` object representing the merged raster.
 #' @examples
-#' # Load sample rasters
-#' raster1 <- raster("path/to/raster1.tif")
-#' raster2 <- raster("path/to/raster2.tif")
-#'
-#' # Merge rasters (two or more), and save it in '.tif' format (optional).
-#' merged_raster <- hb_merge(list(raster1, raster2), "path/to/merged_raster.tif")
+#' \dontrun{
+#' # Create two sample rasters or load it: "raster1" and "raster2"
+#' # Merge rasters (two or more), optionally saving to a file
+#' merged_raster <- hb_merge(list(raster1, raster2),
+#'                            tempfile(fileext = ".tif"))
 #'
 #' # NOTE: 'RasterLayer' issues? Use the spat_to_raster() function
-#' raster1 <- spat_to_raster(rast("path/to/raster1.tif"))
-#' raster2 <- spat_to_raster(rast("path/to/raster2.tif"))
+#' raster1_rl <- spat_to_raster(raster1)
+#' raster2_rl <- spat_to_raster(raster2)
 #'
 #' # Plot the merged raster
 #' plot(merged_raster)
-#'
+#' }
+
 #' @export
 hb_merge <- function(raster_list, output_path = NULL) {
 

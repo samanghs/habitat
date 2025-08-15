@@ -5,14 +5,19 @@
 #' @return None. This function is used for its side effect of writing the data to a CSV file.
 #' @details Designed to facilitate the export of habitat change metrics to a CSV file, making it easier to save analysis results in a format that can be readily shared and imported into other software for further analysis.
 #' @examples
-#' # Example usage
-#'
+#' \dontrun{
 #' # Create a sample result list with habitat change metrics
-#' result <- list(Compt.By.Models = data.frame(Model = c("Model1", "Model2"),
-#' Metric1 = c(0.1, 0.2), Metric2 = c(0.3, 0.4)))
+#' result <- list(
+#'   Compt.By.Models = data.frame(
+#'     Model = c("Model1", "Model2"),
+#'     Metric1 = c(0.1, 0.2),
+#'     Metric2 = c(0.3, 0.4)
+#'   )
+#' )
 #'
 #' # Export the habitat change metrics to a CSV file
-#' hb_exp_csv(result, "habitat_results.csv")
+#' hb_exp_csv(result, tempfile(fileext = ".csv"))
+#' }
 #' @export
 hb_exp_csv <- function(result, file_path) {
   write.csv(result$Compt.By.Models, file_path, row.names = FALSE)
@@ -25,14 +30,19 @@ hb_exp_csv <- function(result, file_path) {
 #' @return None. This function is used for its side effect of writing the data to a TXT file.
 #' @details Designed to facilitate the export of habitat change metrics to a TXT file, making it easier to save analysis results in a text format that can be readily shared and imported into other software for further analysis.
 #' @examples
-#' # Example usage
-#'
+#' \dontrun{
 #' # Create a sample result list with habitat change metrics
-#' result <- list(Compt.By.Models = data.frame(Model = c("Model1", "Model2"),
-#' Metric1 = c(0.1, 0.2), Metric2 = c(0.3, 0.4)))
+#' result <- list(
+#'   Compt.By.Models = data.frame(
+#'     Model = c("Model1", "Model2"),
+#'     Metric1 = c(0.1, 0.2),
+#'     Metric2 = c(0.3, 0.4)
+#'   )
+#' )
 #'
 #' # Export the habitat change metrics to a TXT file
-#' hb_exp_txt(result, "habitat_results.txt")
+#' hb_exp_txt(result, tempfile(fileext = ".txt"))
+#' }
 #' @export
 hb_exp_txt <- function(result, file_path) {
   write.table(result$Compt.By.Models, file_path, row.names = FALSE, sep = "\t")
@@ -47,17 +57,13 @@ library(terra)
 #' @param file_path The file path where the raster will be saved. The extension should be .tif, .png, or .jpg.
 #' @return None. This function is used for its side effect of writing the raster to a file.
 #' @examples
-#' # Load sample raster data
-#' raster_data <- rast("path/to/raster.tif")
-#'
-#' # Export the raster to a .tif file
-#' hb_exp_raster(raster_data, "output_raster.tif")
-#'
-#' # Export the raster to a .png file
-#' hb_exp_raster(raster_data, "output_raster.png")
-#'
-#' # Export the raster to a .jpg file
-#' hb_exp_raster(raster_data, "output_raster.jpg")
+#' \dontrun{
+#' # Create a sample raster or load: "raster_data"
+#' # Export the raster to various formats (saved to temp files)
+#' hb_exp_raster(raster_data, tempfile(fileext = ".tif"))
+#' hb_exp_raster(raster_data, tempfile(fileext = ".png"))
+#' hb_exp_raster(raster_data, tempfile(fileext = ".jpg"))
+#' }
 #' @export
 hb_exp_raster <- function(raster_data, file_path) {
   # Check the file extension

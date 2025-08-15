@@ -4,15 +4,18 @@
 #' @return None. The results are printed in the console.
 #' @details This function calculates the total area of suitable and unsuitable regions in a binary raster and prints the results in hectares, square kilometers, and square meters.
 #' @examples
+#' \dontrun{
 #' # Example usage with a binary SpatRaster object
 #'
-#'
 #' # Create a sample binary raster
-#' binary_raster <- rast(nrows = 10, ncols = 10, vals = sample(c(0, 1), 100, replace = TRUE))
+#' binary_raster <- terra::rast(
+#'   nrows = 10, ncols = 10,
+#'   vals = sample(c(0, 1), 100, replace = TRUE)
+#' )
 #'
 #' # Calculate and print the suitable and unsuitable areas
 #' hb_cal_area(binary_raster)
-
+#' }
 #' @export
 hb_cal_area <- function(binary_raster) {
   if (!inherits(binary_raster, "SpatRaster")) {

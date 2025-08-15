@@ -6,16 +6,19 @@
 #' @return A reclassified SpatRaster object with values reclassified according to the specified bins and new values.
 #' @details Designed to take a continuous or categorical raster dataset and reclassify its values based on specified breakpoints (bins). This is useful for simplifying or categorizing raster data for further analysis, visualization, or modeling.
 #' @examples
-#' # Example usage with a SpatRaster object
+#' \dontrun{
+#' # Create a sample raster dataset or load it: "raster1"
 #'
-#' # Create a sample raster dataset with random values
-#' raster <- rast(nrows = 10, ncols = 10, vals = runif(100))
-#'
-#' # Reclassify the raster values using specified bins and new values
-#' reclassified_raster <- hb_reclass(raster, bins = c(0, 0.25, 0.5, 0.75, 1), values = c(1, 2, 3, 4))
+#' # Reclassify raster values using specified bins and new values
+#' reclassified_raster <- hb_reclass(
+#'   raster1,
+#'   bins = c(0, 0.25, 0.5, 0.75, 1),
+#'   values = c(1, 2, 3, 4)
+#' )
 #'
 #' # Plot the resulting reclassified raster
 #' plot(reclassified_raster, main = "Reclassified Raster Values")
+#' }
 #' @export
 hb_reclass <- function(raster, bins, values) {
   if (!inherits(raster, "SpatRaster")) {

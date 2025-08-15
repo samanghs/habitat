@@ -9,14 +9,19 @@
 #' @param add_legend Logical. If TRUE, includes a legend in the plot.
 #' @details This function plots a habitat map with various optional parameters for enhanced visualization.
 #' @examples
-#' # Example usage with a SpatRaster object
-#'
-#' # Create a sample raster
-#' raster <- rast(nrows = 10, ncols = 10, vals = runif(100))
-#'
+#' \dontrun{
+#' # Create a sample raster or load it!
 #' # Plot habitat map
-#' hb_plot(raster, main = "Sample Habitat Map", lonlat = TRUE, add_north_arrow = TRUE, background_color = "lightblue", add_legend = TRUE, habitat_palette = "viridis")
-
+#' hb_plot(
+#'   raster,
+#'   main = "Sample Habitat Map",
+#'   lonlat = TRUE,
+#'   add_north_arrow = TRUE,
+#'   background_color = "lightblue",
+#'   add_legend = TRUE,
+#'   habitat_palette = "viridis"
+#' )
+#' }
 #' @export
 hb_plot <- function(raster, main = "Habitat Map", lonlat = TRUE, add_north_arrow = FALSE, background_color = "white", habitat_palette = "viridis", add_legend = TRUE) {
   if (!inherits(raster, "SpatRaster")) {

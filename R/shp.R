@@ -4,17 +4,25 @@
 #' @return An sf object containing the shapefile data.
 #' @details Reads a shapefile from the specified path and prepares it for compatibility with raster operations by aligning its CRS and extent.
 #' @examples
-#' # Example usage
-#'
-#' # Load a sample shapefile
-#' shapefile_path <- "path/to/shapefile.shp"
+#' \dontrun{
+#' # Create a temporary shapefile or load it with sf package
+#' library(sf)
+#' pts <- data.frame(
+#'   id = 1:3,
+#'   x = c(0, 1, 2),
+#'   y = c(0, 1, 2)
+#' )
+#' sf_obj <- st_as_sf(pts, coords = c("x", "y"), crs = 4326)
+#' shp_path <- tempfile(fileext = ".shp")
+#' st_write(sf_obj, shp_path, quiet = TRUE)
 #'
 #' # Load and prepare the shapefile
-#' shapefile_data <- hb_load_shp(shapefile_path)
+#' shapefile_data <- hb_load_shp(shp_path)
 #'
-#' # Check the CRS and extent
+#' # Check CRS and extent
 #' print(st_crs(shapefile_data))
 #' print(st_bbox(shapefile_data))
+#' }
 #' @export
 hb_load_shp <- function(file_path) {
   if (!file.exists(file_path)) {
