@@ -19,14 +19,13 @@ Provides summary statistics for a given SpatRaster object, calculating key stati
 Designed to take a raster dataset and compute summary statistics that provide insights into the data's distribution and variability. These statistics are useful for understanding the overall characteristics of the raster data.
 }
 \examples{
-# Example usage with a SpatRaster object
-
-# Create a sample raster dataset with random values
-raster <- rast(nrows = 10, ncols = 10, vals = runif(100))
+\dontrun{
+# Create a sample raster dataset or load it: "raster1"
 
 # Generate the summary statistics for the raster
-raster_summary <- hb_sstat(raster)
+raster_summary <- hb_sstat(raster1)
 
 # Display the summary statistics
 print(raster_summary)
+}
 }

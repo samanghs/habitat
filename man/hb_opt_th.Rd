@@ -16,8 +16,8 @@ A list with optimal thresholds for different criteria.
 Calculates various optimal thresholds based on different criteria such as max(sp + se), max(kappa), and others.
 }
 \examples{
-Not run:
-Assuming the user has already extracted evaluation metrics
+\dontrun{
+# Assuming the user has already extracted evaluation metrics
 example_function(metrics)
 
 # Calculate optimal thresholds
@@ -25,10 +25,9 @@ thresholds <- hb_opt_th(eval_metrics)
 print(thresholds)
 
 # Example usage of the extracted threshold with existing functions:
-# max_sp_se_threshold <- thresholds$max_sp_se
-# binary_map <- hb_binary(r, th = max_sp_se_threshold)
-# habitat_analysis <- hb_an_habitat(x1, x2, threshold = max_sp_se_threshold)
-# range_analysis <- hb_range(x, y, th = max_sp_se_threshold)
-
-End(Not run)
+max_sp_se_threshold <- thresholds$max_sp_se
+binary_map <- hb_binary(r, th = max_sp_se_threshold)
+habitat_analysis <- hb_an_habitat(x1, x2, threshold = max_sp_se_threshold)
+range_analysis <- hb_range(x, y, th = max_sp_se_threshold)
+}
 }

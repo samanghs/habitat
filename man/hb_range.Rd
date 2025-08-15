@@ -27,12 +27,8 @@ Computes metrics such as gain, loss, stable areas, and total changes between two
 Designed to compare two binary raster maps representing habitat data at different time points. Calculates various metrics to summarize the changes between the two maps, which can be used to assess the impact of environmental changes or conservation efforts.
 }
 \examples{
-# Example usage with SpatRaster objects
-
-# Create sample binary raster datasets
-r1 <- rast(nrows = 10, ncols = 10, vals = sample(c(0, 1), 100, replace = TRUE))
-r2 <- rast(nrows = 10, ncols = 10, vals = sample(c(0, 1), 100, replace = TRUE))
-
+\dontrun{
+# Create sample binary raster datasets or load it: for instance "r1" and "r2"
 # Analyze habitat changes
 result <- hb_range(r1, r2, th = 0.5)
 
@@ -41,4 +37,5 @@ print(result$Compt.By.Models)
 
 # Plot the habitat changes
 hb_plot(result$Compt.By.Models)
+}
 }

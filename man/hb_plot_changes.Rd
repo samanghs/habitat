@@ -30,6 +30,10 @@ Plots a SpatRaster highlighting areas of habitat gain, loss, stability, and abse
 Uses terra::plot() for fast, seam-free visualization of rasters.
 }
 \examples{
-# changes_raster <- hb_changes(raster1_binary, raster2_binary)
-# hb_plot_changes(changes_raster, title = "Habitat Changes")
+\dontrun{
+changes_raster <- hb_changes(r1, r2)
+
+# Plot habitat changes
+hb_plot_changes(changes_raster, title = "Habitat Changes")
+}
 }

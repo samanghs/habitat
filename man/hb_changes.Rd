@@ -21,17 +21,19 @@ Compares two binary raster files and generates a new raster highlighting areas o
 hb_changes function ensures both input rasters are in the same CRS and extent, computes the differences, and generates a new raster with categories for gain (green), loss (red), stability (yellow), and absence (gray). It is useful for ecological and environmental studies to visualize how habitats have changed over time or under different conditions.
 }
 \examples{
-# Load sample rasters
-raster1 <- rast("path/to/first_raster.tif")
-raster2 <- rast("path/to/second_raster.tif")
+\dontrun{
+# Create two sample rasters
+r1 <- terra::rast(nrows = 10, ncols = 10, vals = runif(100))
+r2 <- terra::rast(nrows = 10, ncols = 10, vals = runif(100))
 
 # Convert to binary
-raster1_binary <- hb_binary(raster1, th = 0.5)
-raster2_binary <- hb_binary(raster2, th = 0.5)
+raster1_binary <- hb_binary(r1, th = 0.5)
+raster2_binary <- hb_binary(r2, th = 0.5)
 
 # Calculate changes
 changes_raster <- hb_changes(raster1_binary, raster2_binary)
 
 # Plot changes
 hb_plot_changes(changes_raster)
+}
 }

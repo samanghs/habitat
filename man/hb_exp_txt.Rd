@@ -21,12 +21,17 @@ Exports habitat change metrics to a TXT file. The habitat change metrics are ext
 Designed to facilitate the export of habitat change metrics to a TXT file, making it easier to save analysis results in a text format that can be readily shared and imported into other software for further analysis.
 }
 \examples{
-# Example usage
-
+\dontrun{
 # Create a sample result list with habitat change metrics
-result <- list(Compt.By.Models = data.frame(Model = c("Model1", "Model2"),
-Metric1 = c(0.1, 0.2), Metric2 = c(0.3, 0.4)))
+result <- list(
+  Compt.By.Models = data.frame(
+    Model = c("Model1", "Model2"),
+    Metric1 = c(0.1, 0.2),
+    Metric2 = c(0.3, 0.4)
+  )
+)
 
 # Export the habitat change metrics to a TXT file
-hb_exp_txt(result, "habitat_results.txt")
+hb_exp_txt(result, tempfile(fileext = ".txt"))
+}
 }

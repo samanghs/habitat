@@ -19,19 +19,15 @@ Summarizes the multidimensional dataset across a specific dimension (e.g., calcu
 This is the second step in a sequence of functions to analyze habitat trends.
 }
 \examples{
-# List of raster files
-raster_files <- c("path/to/raster1.tif", rast("path/to/raster2.tif"))
-# Corresponding time points
+\dontrun{
+# Same synthetic setup as in multidimensional
+raster_files <- list(r1, r2)
 time_points <- c(2022, 2023)
-# Create multidimensional raster layer
+
 multidimensional_raster <- hb_multiD_raster(raster_files, time_points)
-
- # Aggregate multidimensional raster to compute the mean
 aggregated_raster <- hb_agg_md_raster(multidimensional_raster, fun = mean)
-
-# Analyze changes using statistical summaries
 trends <- hb_analyze_changes(multidimensional_raster, fun = trend_analysis)
 
-# Plot the time series data (output_path is optional)
-hb_plot_timesrs(trends, output_path = "path/to/timesrs_plot.tif")
+hb_plot_timesrs(trends, output_path = tempfile(fileext = ".tif"))
+}
 }

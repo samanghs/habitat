@@ -18,15 +18,11 @@ None. This function is used for its side effect of writing the raster to a file.
 Exports a raster to a specified file format (.tif, .png, or .jpg).
 }
 \examples{
-# Load sample raster data
-raster_data <- rast("path/to/raster.tif")
-
-# Export the raster to a .tif file
-hb_exp_raster(raster_data, "output_raster.tif")
-
-# Export the raster to a .png file
-hb_exp_raster(raster_data, "output_raster.png")
-
-# Export the raster to a .jpg file
-hb_exp_raster(raster_data, "output_raster.jpg")
+\dontrun{
+# Create a sample raster or load: "raster_data"
+# Export the raster to various formats (saved to temp files)
+hb_exp_raster(raster_data, tempfile(fileext = ".tif"))
+hb_exp_raster(raster_data, tempfile(fileext = ".png"))
+hb_exp_raster(raster_data, tempfile(fileext = ".jpg"))
+}
 }

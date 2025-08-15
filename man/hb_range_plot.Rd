@@ -19,11 +19,11 @@ Plots habitat changes as a bar chart. The bar chart visualizes the percentage of
 Designed to take the habitat change metrics computed by the \code{hb_habitat_range} function and visualize them in a bar chart. This helps in understanding the extent of habitat changes visually.
 }
 \examples{
-# Example usage with the results from hb_habitat_range function
-
+\dontrun{
 # Assume result is obtained from hb_habitat_range function
 # result <- hb_habitat_range(r1, r2, th = 0.5)
 
 # Plot the habitat changes
-hb_range_plot(result$Compt.By.Models)
+hb_range_plot(result)
+}
 }

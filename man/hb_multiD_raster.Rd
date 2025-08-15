@@ -19,19 +19,21 @@ Converts a series of raster files or loaded raster objects into a multidimension
 This is the first step in a sequence of functions to analyze habitat trends.
 }
 \examples{
-# List of raster files
-raster_files <- c("path/to/raster1.tif", rast("path/to/raster2.tif"))
-# Corresponding time points
+\dontrun{
+# Create sample rasters or load it: "r1" and "r2"
+raster_files <- list(r1, r2)
 time_points <- c(2022, 2023)
+
 # Create multidimensional raster layer
 multidimensional_raster <- hb_multiD_raster(raster_files, time_points)
 
- # Aggregate multidimensional raster to compute the mean
+# Aggregate to compute the mean
 aggregated_raster <- hb_agg_md_raster(multidimensional_raster, fun = mean)
 
-# Analyze changes using statistical summaries
+# Analyze changes
 trends <- hb_analyze_changes(multidimensional_raster, fun = trend_analysis)
 
-# Plot the time series data (output_path is optional)
-hb_plot_timesrs(trends, output_path = "path/to/timesrs_plot.tif")
+# Plot the time series data
+hb_plot_timesrs(trends, output_path = tempfile(fileext = ".tif"))
+}
 }

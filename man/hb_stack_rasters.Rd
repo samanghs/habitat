@@ -19,13 +19,11 @@ Stacks multiple SpatRaster objects into a single SpatRaster object.
 This function takes a list of SpatRaster objects and stacks them into a single SpatRaster object. It is useful for combining multiple raster layers for further analysis.
 }
 \examples{
-# Example usage with SpatRaster objects
-
-# Create sample raster datasets
-raster1 <- rast(nrows = 10, ncols = 10, vals = runif(100))
-raster2 <- rast(nrows = 10, ncols = 10, vals = runif(100))
+\dontrun{
+# Create sample raster datasets or load it: "raster1" and "raster2"
 
 # Stack the rasters
 stacked_rasters <- hb_stack_rasters(list(raster1, raster2))
 plot(stacked_rasters)
+}
 }

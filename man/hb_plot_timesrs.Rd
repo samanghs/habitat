@@ -54,9 +54,17 @@ A ggplot object representing the time series plot.
 Visualizes the trends in habitat suitability. This is the final step in a sequence of functions to analyze and visualize habitat trends.
 }
 \examples{
-# Plot the time series data (output_path is optional)
-hb_plot_timesrs(trends, lon_min = -10, lon_max = 10, lat_min = 35, lat_max = 45,
-                low_color = "blue", mid_color = "white", high_color = "red",
-                x_label = "Longitude", y_label = "Latitude", plot_title = "My Custom Title",
-                bg_color = "black", output_path = "path/to/timesrs_plot.tif")
+\dontrun{
+# Create dummy trends data for plotting
+trends <- list(data = matrix(runif(100), ncol = 10))
+
+hb_plot_timesrs(trends,
+  lon_min = -10, lon_max = 10, lat_min = 35, lat_max = 45,
+  low_color = "blue", mid_color = "white", high_color = "red",
+  x_label = "Longitude", y_label = "Latitude",
+  plot_title = "My Custom Title",
+  bg_color = "black",
+  output_path = tempfile(fileext = ".tif")
+)
+}
 }

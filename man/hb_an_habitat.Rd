@@ -23,10 +23,14 @@ Analyzes the range of suitable habitat based on a given threshold and provides s
 Calculates the range of suitable habitat areas using pre-aligned raster files.
 }
 \examples{
-# Example usage
-x1 <- "path/to/DEM.tif"
-x2 <- "path/to/habitat.tif"
+\dontrun{
+# Create synthetic rasters or load it: "x1" and "x2"
+
+# Analyze habitat with threshold
 result <- hb_an_habitat(x1, x2, threshold = 0.5)
+
+# Print results
 print(result$statistics)
 print(result$plot)
+}
 }

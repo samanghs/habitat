@@ -21,23 +21,17 @@ Converts a binary or continuous SpatRaster object to a polygon.
 The function is designed to convert a raster dataset into a polygon, which is useful for visualizing raster data as vector data and performing vector-based spatial analyses.
 }
 \examples{
-# Example usage with SpatRaster objects
-
-# Create a sample binary raster
-binary_raster <- rast(nrows = 10, ncols = 10, vals = sample(c(0, 1), 100, replace = TRUE))
+\dontrun{
+# Create a sample binary raster or load it: "binary_raster"
 
 # Convert the binary raster to polygons
 binary_polygons <- hb_raster_to_polygon(binary_raster, binary = TRUE)
-
-# Plot the resulting polygons
 plot(binary_polygons)
 
-# Create a sample continuous raster
-continuous_raster <- rast(nrows = 10, ncols = 10, vals = runif(100))
+# Create a sample raster or load it: "raster1"
 
-# Convert the continuous raster to polygons
-continuous_polygons <- hb_ras_to_pol(continuous_raster)
-
-# Plot the resulting polygons
+# Convert the raster to polygons
+continuous_polygons <- hb_ras_to_pol(raster1)
 plot(continuous_polygons)
+}
 }

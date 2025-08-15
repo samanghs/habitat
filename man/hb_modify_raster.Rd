@@ -36,22 +36,25 @@ Modifies the CRS, extent, resolution, and applies crop and mask operations to a 
 Designed to provide a comprehensive set of modifications to a raster dataset, including changing the CRS, adjusting the extent, resampling the resolution, cropping to a specified extent, and applying a mask. These modifications are useful for preparing raster data for analysis, visualization, or integration with other spatial datasets.
 }
 \examples{
-# Example usage with SpatRaster objects
-
-# Create sample raster datasets
-r1 <- rast(nrows = 10, ncols = 10, vals = runif(100))
-r2 <- rast(nrows = 11, ncols = 11, vals = runif(100))
-
+\dontrun{
+# Create sample raster datasets or load: "r1" and "r2"
 # Modify the CRS and extent of the first raster
-modified_r1 <- hb_modify_raster(r1, crs = "EPSG:4326", extent = c(0, 1000, 0, 1000))
+modified_r1 <- hb_modify_raster(r1,
+                                crs = "EPSG:4326",
+                                extent = c(0, 1000, 0, 1000))
 plot(modified_r1, main = "Modified Raster (CRS and Extent)")
 
 # Modify the CRS, extent, and crop the second raster
-modified_r2 <- hb_modify_raster(r2, crs = "EPSG:4326", extent = c(0, 1000, 0, 1000), crop_extent = modified_r1)
+modified_r2 <- hb_modify_raster(r2,
+                                crs = "EPSG:4326",
+                                extent = c(0, 1000, 0, 1000),
+                                crop_extent = modified_r1)
 plot(modified_r2, main = "Modified Raster (CRS, Extent, and Crop)")
 
 # Apply a mask to the first raster
-mask <- rast(nrows = 10, ncols = 10, vals = sample(c(0, 1), 100, replace = TRUE))
+mask <- terra::rast(nrows = 10, ncols = 10,
+                    vals = sample(c(0, 1), 100, replace = TRUE))
 masked_r1 <- hb_modify_raster(r1, mask = mask)
 plot(masked_r1, main = "Masked Raster")
+}
 }

@@ -21,12 +21,17 @@ Exports habitat change metrics to a CSV file. The habitat change metrics are ext
 Designed to facilitate the export of habitat change metrics to a CSV file, making it easier to save analysis results in a format that can be readily shared and imported into other software for further analysis.
 }
 \examples{
-# Example usage
-
+\dontrun{
 # Create a sample result list with habitat change metrics
-result <- list(Compt.By.Models = data.frame(Model = c("Model1", "Model2"),
-Metric1 = c(0.1, 0.2), Metric2 = c(0.3, 0.4)))
+result <- list(
+  Compt.By.Models = data.frame(
+    Model = c("Model1", "Model2"),
+    Metric1 = c(0.1, 0.2),
+    Metric2 = c(0.3, 0.4)
+  )
+)
 
 # Export the habitat change metrics to a CSV file
-hb_exp_csv(result, "habitat_results.csv")
+hb_exp_csv(result, tempfile(fileext = ".csv"))
+}
 }

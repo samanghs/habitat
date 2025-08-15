@@ -19,13 +19,11 @@ Stacks multiple data frames into a single data frame.
 This function takes a list of data frames and stacks them into a single data frame by row binding. It is useful for combining multiple data frames for further analysis.
 }
 \examples{
-# Example usage with data frames
-
-# Create sample data frames
-df1 <- data.frame(a = 1:5, b = letters[1:5])
-df2 <- data.frame(a = 6:10, b = letters[6:10])
+\dontrun{
+# Create sample data frames or load it: "df1" and "df2"
 
 # Stack the data frames
 stacked_df <- hb_stack_dfs(list(df1, df2))
 print(stacked_df)
+}
 }
