@@ -1,4 +1,4 @@
-## v1.6-00 – 2025-08-21
+## v1.6-00 – 2025-08-15
 
 - Documentation  
   Fixed missing “Not run” blocks in all `@examples`: replaced stray  
