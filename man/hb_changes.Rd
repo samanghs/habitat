@@ -22,7 +22,9 @@ hb_changes function ensures both input rasters are in the same CRS and extent, c
 }
 \examples{
 \dontrun{
-# Create two sample rasters or load it: "r1" and "r2"
+# Create two sample rasters
+r1 <- terra::rast(nrows = 10, ncols = 10, vals = runif(100))
+r2 <- terra::rast(nrows = 10, ncols = 10, vals = runif(100))
 
 # Convert to binary
 raster1_binary <- hb_binary(r1, th = 0.5)
