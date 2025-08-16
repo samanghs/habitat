@@ -1,5 +1,3 @@
-# Load necessary libraries
-library(sdm)
 
 #' @title Extract Evaluation Metrics from sdmModels Object
 #' @description Extracts evaluation metrics including threshold, sensitivity, specificity, TSS, MCC, F1, Kappa, NMI, PHI, PPV, NPV, CCR, MCR, Omission, Commission, and Prevalence from a trained sdm model.
