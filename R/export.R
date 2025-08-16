@@ -58,27 +58,28 @@ library(terra)
 #' @return None. This function is used for its side effect of writing the raster to a file.
 #' @examples
 #' \dontrun{
-#' # Create a sample raster or load: "raster_data"
-#' # Export the raster to various formats (saved to temp files)
-#' hb_exp_raster(raster_data, tempfile(fileext = ".tif"))
-#' hb_exp_raster(raster_data, tempfile(fileext = ".png"))
-#' hb_exp_raster(raster_data, tempfile(fileext = ".jpg"))
+#'library(terra)
+
+#' #Dummy raster
+#' r <- rast(nrows = 10, ncols = 10, vals = runif(100))
+#' # Save in different formats
+#' hb_exp_raster(r, "example_raster.tif")
+#' hb_exp_raster(r, "example_raster.png")
+#' hb_exp_raster(r, "example_raster.jpg")
+
+#' # Read back & plot
+#' plot(rast("example_raster.tif"), main = "Loaded GeoTIFF")
 #' }
 #' @export
 hb_exp_raster <- function(raster_data, file_path) {
-  # Check the file extension
   ext <- tools::file_ext(file_path)
 
   if (!inherits(raster_data, "SpatRaster")) {
     stop("The input data must be a SpatRaster object.")
   }
 
-  if (ext == "tif") {
-    writeRaster(raster_data, file_path, format = "GTiff")
-  } else if (ext == "png") {
-    writeRaster(raster_data, file_path, format = "PNG")
-  } else if (ext == "jpg" || ext == "jpeg") {
-    writeRaster(raster_data, file_path, format = "JPEG")
+  if (ext %in% c("tif", "tiff", "png", "jpg", "jpeg")) {
+    terra::writeRaster(raster_data, file_path, overwrite = TRUE)
   } else {
     stop("Unsupported file extension. Please use .tif, .png, or .jpg.")
   }
