@@ -101,7 +101,7 @@ hb_plot_changes <- function(changes_raster, title = "Changes", xlab = "Longitude
   old_par <- par(bg = bg_color)
   on.exit(par(old_par), add = TRUE)
 
-  plot(
+  terra::plot(
     changes_raster,
     type = "classes",
     col = c("red", "green", "yellow", "gray"),
