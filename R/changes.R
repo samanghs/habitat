@@ -26,9 +26,7 @@ raster_to_spat <- function(raster_layer) {
 #' @details hb_changes function ensures both input rasters are in the same CRS and extent, computes the differences, and generates a new raster with categories for gain (green), loss (red), stability (yellow), and absence (gray). It is useful for ecological and environmental studies to visualize how habitats have changed over time or under different conditions.
 #' @examples
 #' \dontrun{
-#' # Create two sample rasters
-#' r1 <- terra::rast(nrows = 10, ncols = 10, vals = runif(100))
-#' r2 <- terra::rast(nrows = 10, ncols = 10, vals = runif(100))
+#' # Create two sample rasters or load it: "r1" and "r2"
 #'
 #' # Convert to binary
 #' raster1_binary <- hb_binary(r1, th = 0.5)
