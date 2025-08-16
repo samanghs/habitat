@@ -10,15 +10,25 @@ Author: Saman Ghasemian Sorboni [aut, cre],
   Mehrdad Hadipour [aut]
 Maintainer: Saman Ghasemian Sorboni <samangh.edu@gmail.com>
 Description: An R package for analyzing and comparing habitat and species distributions changes. Ideal for students, ecologists, environmental researchers, and conservation planners.
-Imports: terra
-Suggests:
-    raster,
+Imports:
+    terra,
+    dplyr,
     ggplot2,
-    sf,
     ggspatial,
+    magrittr,
+    methods,
+    raster,
+    sf,
+    scales,
+    tidyr,    
     sdm,
-    sp
-License: GPL-3
+    grid
+Suggests:
+    sp,
+    viridis,
+    stats,
+    utils
+License: GPL-3 + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
