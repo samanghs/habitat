@@ -8,7 +8,7 @@ utils::globalVariables(c(
 .onAttach <- function(libname, pkgname) {
   packageStartupMessage(
     paste0(
-      "\nhabitat loaded 🐾\n",
+      "\nhabitat loaded \n",
       "NOTE: Be sure you've loaded all necessary libraries for your workflow, ",
       "such as {terra} and other spatial analysis packages you rely on.\n"
     )
