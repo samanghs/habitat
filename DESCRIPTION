@@ -11,13 +11,12 @@ Author: Saman Ghasemian Sorboni [aut, cre],
 Maintainer: Saman Ghasemian Sorboni <samangh.edu@gmail.com>
 Description: An R package for analyzing and comparing habitat and species distributions changes. Ideal for students, ecologists, environmental researchers, and conservation planners.
 Depends: terra
-Imports:
+Suggests:
     raster,
     ggplot2,
     sf,
     ggspatial,
     sdm,
-Suggests:
     sp
 License: GPL-3
 Encoding: UTF-8
