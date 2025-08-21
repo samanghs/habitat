@@ -12,15 +12,21 @@ init:
 
 install:
   - choco install r.project -y
+
   - choco install rtools -y
+
   - refreshenv
+
   - Rscript -e "R.version.string"
+
   - Rscript -e "install.packages('remotes')"
+
   - Rscript -e "remotes::install_deps(dependencies = TRUE)"
 
-  - Rscript -e "install.packages(c('sf','terra','raster'), type='binary')"
+  - Rscript -e "install.packages(c('sf','terra','raster'), type = 'binary')"
 
 build_script:
+
   - Rscript -e "devtools::install()"
   - Rscript -e "devtools::check(error_on = 'warning')"
 
