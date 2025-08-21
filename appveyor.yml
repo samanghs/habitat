@@ -1,15 +1,12 @@
-# appveyor.yml for habitat R package
+
 version: "{build}"
 
-# Use a Windows environment with R pre-installed
 image: Visual Studio 2019
 
-# Environment setup
 environment:
   global:
     R_VERSION: release
 
-# Install R, Rtools, and dependencies
 install:
   - choco install r.project -y
   - choco install rtools -y
@@ -17,12 +14,10 @@ install:
   - Rscript -e "install.packages('remotes')"
   - Rscript -e "remotes::install_deps(dependencies = TRUE)"
 
-# Build and check your package
 build_script:
   - Rscript -e "devtools::install()"
   - Rscript -e "devtools::check(error_on = 'warning')"
 
-# Save built package as artifact
 artifacts:
   - path: '*.tar.gz'
     name: Package
