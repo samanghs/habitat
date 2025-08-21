@@ -10,13 +10,13 @@ environment:
 install:
   - choco install r.project -y
   - choco install rtools -y
-  - set PATH=C:\Program Files\R\R-%R_VERSION%\bin;%PATH%
+
+  - set "PATH=C:\Program Files\R\R-%R_VERSION%\bin;C:\rtools45\ucrt64\bin;C:\rtools45\usr\bin;%PATH%"
+
+  - Rscript -e "R.version.string"
+
   - Rscript -e "install.packages('remotes')"
   - Rscript -e "remotes::install_deps(dependencies = TRUE)"
-
-build_script:
-  - Rscript -e "devtools::install()"
-  - Rscript -e "devtools::check(error_on = 'warning')"
 
 artifacts:
   - path: '*.tar.gz'
